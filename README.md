@@ -1,6 +1,6 @@
 # Sunil Sowrirajan - Portfolio Website
 
-![Portfolio Screenshot](./public/assets/images/screenshot.png)  
+![Portfolio Screenshot](./public/assets/images/Screenshot.png)  
 *A modern, responsive portfolio showcasing my skills, projects, and experience*
 
 ## 🌟 Features
