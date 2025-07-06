@@ -87,14 +87,7 @@ Netlify will automatically deploy your site on push!
 For feedback or collaboration, reach out at: suniltechy@gmail.com
   #### [🔗 LinkedIn](https://www.linkedin.com/in/sunil-sowrirajan-40548826b/)
 
-## Made with ❤️ by Sunil Sowrirajan
-### Key Features of This README:
-1. **Professional Badges** - Shows technologies with visual badges
-2. **Live Demo Link** - Direct link to your deployed portfolio
-3. **Visual Structure** - Clear directory tree visualization
-4. **Easy Customization** - Step-by-step guide for personalization
-5. **Deployment Instructions** - Specific Netlify setup guide
-6. **Responsive Design** - Renders well on GitHub mobile
+Made with ❤️ by Sunil Sowrirajan
    
    
    
