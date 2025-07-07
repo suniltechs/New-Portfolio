@@ -110,7 +110,7 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right Image with reduced shadow */}
+          {/* Right Image */}
           <div className="md:w-1/2 flex justify-center relative">
             <motion.div
               className="relative"
@@ -131,7 +131,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Enhanced Floating Decorative Shapes */}
+      {/* Floating Decorative Shapes */}
       {/* Top Left Cluster */}
       <motion.div 
         className="absolute top-[15%] left-[5%] w-8 h-8 rounded-full bg-primary opacity-20"
@@ -222,7 +222,6 @@ const Hero = () => {
         transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
       />
       
-      {/* Additional floating elements for better coverage */}
       <motion.div 
         className="absolute top-[35%] left-[30%] w-3 h-3 bg-primary opacity-10 rounded-full"
         animate={{ y: [0, -8, 0], x: [0, 5, 0] }}
