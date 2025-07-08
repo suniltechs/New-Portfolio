@@ -9,8 +9,8 @@ const projects = [
     description:
       'A responsive e-learning platform built with React.js and Tailwind CSS. Features interactive course listings, user authentication, and a modern UI with custom animations and icon libraries.',
     image: '/assets/images/projects/E learning.png',
-    viewLink: 'https://etechs.netlify.app/',
-    codeLink: 'https://github.com/suniltechs/Etech.git',
+    viewLink: 'https://etech-new.netlify.app/',
+    codeLink: 'https://github.com/suniltechs/Etech-new',
     tags: ['React', 'Tailwind CSS', 'Responsive Design']
   },
   {
