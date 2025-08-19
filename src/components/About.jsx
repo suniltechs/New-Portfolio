@@ -142,7 +142,7 @@ const About = () => {
               whileTap={{ scale: 0.98 }}
             >
               <motion.a
-                href="https://drive.google.com/file/d/1MZuYFa3ox821NldP8bnDpmovrVhduLZL/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Keri4k0hG28EmLwXJWBsK2isT1Oi3Zye/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white bg-orange-primary"
