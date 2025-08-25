@@ -15,6 +15,16 @@ const projects = [
   },
   {
     id: 2,
+    title: 'Movora: Modern Movie Discovery App',
+    description:
+      'A sleek and modern movie discovery application built with React, Vite, and Tailwind CSS. Features advanced search with filters, trending movies carousel, detailed movie information with ratings, and a fully responsive cinematic UI powered by Framer Motion animations.',
+    image: '/assets/images/projects/movora.png',
+    viewLink: 'https://m0v0ra.netlify.app/',
+    codeLink: 'https://github.com/suniltechs/movora',
+    tags: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'OMDb API']
+  },
+  {
+    id: 3,
     title: 'X-Clone: Social Media Platform',
     description:
       'A full-stack Twitter clone built with MERN stack (MongoDB, Express, React, Node.js). Implements CRUD operations, JWT authentication, real-time updates, and a responsive design.',
@@ -24,7 +34,7 @@ const projects = [
     tags: ['MERN Stack', 'JWT Auth', 'CRUD Operations']
   },
   {
-    id: 3,
+    id: 4,
     title: 'DeepGuard: Deepfake Detection',
     description:
       'AI-powered deepfake detection system using Python, Streamlit, and deep learning models (MesoNet, Hugging Face). Analyzes media files for authenticity with 85%+ accuracy.',
@@ -34,7 +44,7 @@ const projects = [
     tags: ['Python', 'Deep Learning', 'Streamlit']
   },
   {
-    id: 4,
+    id: 5,
     title: 'Dynamic Gym: Fitness Center',
     description:
       'Modern fitness center website with responsive design, class scheduling, and trainer profiles. Built with HTML5, CSS3, and JavaScript with smooth animations.',
@@ -44,7 +54,7 @@ const projects = [
     tags: ['HTML5', 'CSS3', 'JavaScript']
   },
   {
-    id: 5,
+    id: 6,
     title: 'Hotel Golden Sand: Resort Booking',
     description:
       'Elegant resort booking website featuring room galleries, booking system, and responsive design. Implemented with modern CSS techniques and interactive elements.',
