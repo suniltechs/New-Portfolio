@@ -41,8 +41,8 @@ Check out the live deployment:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/portfolio.git
-   cd portfolio
+   git clone https://github.com/suniltechs/New-Portfolio.git
+   cd New-Portfolio
    ```
 2. **Install dependencies**
    ```
