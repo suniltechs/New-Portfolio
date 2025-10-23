@@ -12,7 +12,8 @@ const projects = [
     viewLink: 'https://etech-new.netlify.app/',
     codeLink: 'https://github.com/suniltechs/Etech-new',
     tags: ['React', 'Tailwind CSS', 'Responsive Design']
-  },
+  }
+  ,
   {
     id: 2,
     title: 'Movora: Modern Movie Discovery App',
@@ -95,7 +96,7 @@ const Projects = () => {
   }
 
   return (
-    <section id="work" className="py-20 bg-cream-lighter">
+    <section id="work" className="py-20 dark:bg-dark-bg bg-cream-lighter">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -103,7 +104,7 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold relative inline-block">
+          <h2 className="text-3xl font-bold dark:text-dark-text relative inline-block">
             Projects <span className="text-orange-primary">Made</span>
             <motion.span 
               className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-primary"
@@ -129,7 +130,7 @@ const Projects = () => {
                 y: -8,
                 boxShadow: "0 20px 25px -5px rgba(255, 107, 0, 0.1), 0 10px 10px -5px rgba(255, 107, 0, 0.04)"
               }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden border border-orange-primary/10 hover:border-orange-primary/30 transition-all"
+              className="bg-white dark:bg-dark-card dark:border-dark-secondary rounded-xl shadow-lg overflow-hidden border border-orange-primary/10 hover:border-orange-primary/30 transition-all"
             >
               <div className="relative group overflow-hidden">
                 <img
@@ -137,14 +138,14 @@ const Projects = () => {
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0  bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <FaExternalLinkAlt className="text-white text-2xl" />
                 </div>
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-black">{project.title}</h3>
-                <p className="text-black mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold mb-3 dark:text-dark-text text-black">{project.title}</h3>
+                <p className="text-black dark:text-dark-text mb-4">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, index) => (
