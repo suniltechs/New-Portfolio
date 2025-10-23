@@ -8,7 +8,8 @@ const experiences = [
     role: "Website Developer | Internship",
     period: "Nov 2023 - Dec 2023",
     description: "Developed responsive websites using modern frontend technologies, implemented UI components, and collaborated with team members on web development projects.",
-    icon: "🚀" 
+    icon: "🥇",
+    skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS", "Responsive Design"]
   }
 ]
 
@@ -32,18 +33,18 @@ const Experience = () => {
   const itemVariants = {
     hidden: { 
       opacity: 0,
-      x: (index) => (index % 2 === 0 ? 100 : -100)
+      y: 50
     },
-    visible: (index) => ({
+    visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
         type: "spring",
         stiffness: 80,
         damping: 12,
         duration: 0.8
       }
-    })
+    }
   }
 
   const lineVariants = {
@@ -58,30 +59,27 @@ const Experience = () => {
   }
 
   return (
-    <section id="experience" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="experience" className="py-20 dark:bg-dark-bg bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold relative inline-block">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent mb-4">
             Experience
-            <motion.span 
-              className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-primary"
-              initial={{ scaleX: 0 }}
-              animate={inView ? { scaleX: 1 } : {}}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            />
           </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            My professional journey and hands-on experience
+          </p>
         </motion.div>
 
-        <div ref={ref} className="max-w-4xl mx-auto">
+        <div ref={ref} className="max-w-6xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
             <motion.div 
-              className="absolute left-1/2 h-full w-0.5 bg-orange-primary -ml-0.5"
+              className="absolute left-4 md:left-1/2 h-full w-1 bg-gradient-to-b from-orange-400 to-orange-600 -ml-0.5"
               variants={lineVariants}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
@@ -91,33 +89,66 @@ const Experience = () => {
               variants={containerVariants}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              className="space-y-16"
+              className="space-y-12"
             >
               {experiences.map((exp, index) => (
                 <motion.div 
                   key={exp.id}
-                  custom={index}
                   variants={itemVariants}
                   className="relative group"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-1/2 -ml-3 top-8 w-6 h-6 rounded-full bg-orange-primary shadow-lg flex items-center justify-center text-white z-10">
-                    {exp.icon}
-                  </div>
+                  <motion.div 
+                    className="absolute left-4 md:left-1/2 -ml-4 top-6 w-8 h-8 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg flex items-center justify-center text-white z-10 border-2 border-white dark:border-dark-bg"
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <span className="text-sm">{exp.icon}</span>
+                  </motion.div>
 
-                  {/* Experience card - positioned to right for odd, left for even */}
-                  <div className={`relative ${index % 2 === 0 ? 'md:ml-auto md:pl-8' : 'md:mr-auto md:pr-8'}`} style={{ width: 'calc(50% - 20px)' }}>
+                  {/* Experience card */}
+                  <div className={`ml-16 md:ml-0 ${index % 2 === 0 ? 'md:ml-auto md:pl-12' : 'md:mr-auto md:pr-12'} md:w-[45%]`}>
                     <motion.div 
                       whileHover={{ 
-                        scale: 1.03,
-                        boxShadow: "0 10px 25px -5px rgba(255, 107, 0, 0.1)"
+                        scale: 1.02,
+                        y: -5,
+                        boxShadow: "0 20px 40px -10px rgba(255, 107, 0, 0.15)"
                       }}
-                      className={`bg-white p-6 rounded-xl shadow-md border border-orange-primary/10 hover:border-orange-primary/30 transition-all ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}
+                      className="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 hover:border-orange-300 dark:hover:border-orange-400 transition-all duration-300"
                     >
-                      <h3 className="text-xl font-bold mb-2 text-black">{exp.company}</h3>
-                      <p className="font-medium text-orange-primary mb-1">{exp.role}</p>
-                      <p className="text-sm text-gray-600 mb-3">{exp.period}</p>
-                      <p className="text-gray-700">{exp.description}</p>
+                      {/* Header */}
+                      <div className={`flex flex-col ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
+                        <span className="inline-block px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-medium rounded-full mb-3 self-start md:self-auto">
+                          {exp.period}
+                        </span>
+                        
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                          {exp.company}
+                        </h3>
+                        
+                        <p className="text-lg font-semibold text-orange-500 dark:text-orange-400 mb-4">
+                          {exp.role}
+                        </p>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                        {exp.description}
+                      </p>
+
+                      {/* Skills */}
+                      {exp.skills && (
+                        <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                          {exp.skills.map((skill, skillIndex) => (
+                            <span 
+                              key={skillIndex}
+                              className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full border border-gray-200 dark:border-gray-700"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </motion.div>
                   </div>
                 </motion.div>
@@ -125,6 +156,24 @@ const Experience = () => {
             </motion.div>
           </div>
         </div>
+
+        {/* Call to action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="text-center mt-16"
+        >
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
+            Ready to bring your next project to life?{" "}
+            <a 
+              href="#contact" 
+              className="text-orange-500 dark:text-orange-400 font-semibold hover:underline underline-offset-4"
+            >
+              Let's connect!
+            </a>
+          </p>
+        </motion.div>
       </div>
     </section>
   )
