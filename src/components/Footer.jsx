@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FaLinkedin, FaGithub, FaEnvelope, FaChevronRight } from 'react-icons/fa'
 import { FaCode, FaBolt, FaMapMarkerAlt } from 'react-icons/fa'
+import { IoRocket } from "react-icons/io5";
 
 const Footer = () => {
   const [ref, inView] = useInView({
@@ -42,7 +43,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-white text-black py-16">
+    <footer className="bg-white text-black py-16 dark:text-dark-text dark:bg-dark-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -60,11 +61,11 @@ const Footer = () => {
               <FaCode className="mr-3 text-orange-primary" />
               <span>Sunil's Portfolio</span>
             </motion.h3>
-            <p className="text-black mb-6">
+            <p className="text-black mb-6 dark:text-dark-text">
               Thank you for visiting my personal portfolio website. Connect with me over socials.
             </p>
             <motion.p 
-              className="flex items-center text-black font-medium"
+              className="flex items-center dark:text-dark-text text-black font-medium"
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -86,7 +87,7 @@ const Footer = () => {
                 >
                   <a
                     href={`#${link.id}`}
-                    className="flex items-center text-black hover:text-orange-primary transition-colors duration-300 group"
+                    className="flex items-center text-black dark:text-dark-text hover:text-orange-primary transition-colors duration-300 group"
                   >
                     <motion.span 
                       className="inline-block mr-3 text-orange-primary"
@@ -111,7 +112,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-6 text-orange-primary">Contact Info</h3>
             <motion.a
               href="mailto:sunilsowrirajan@gmail.com"
-              className="flex items-center text-black mb-4 hover:text-orange-primary transition-colors"
+              className="flex items-center text-black dark:text-dark-text mb-4 hover:text-orange-primary transition-colors"
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -119,7 +120,7 @@ const Footer = () => {
               sunilsowrirajan@gmail.com
             </motion.a>
             <motion.div
-              className="flex items-center text-black mb-8"
+              className="flex items-center dark:text-dark-text text-black mb-8"
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -132,7 +133,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/sunil-sowrirajan-40548826b/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-black hover:text-orange-primary transition-colors"
+                className="text-2xl text-black dark:text-dark-text hover:text-orange-primary transition-colors"
                 aria-label="LinkedIn"
                 whileHover={{ y: -5, scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
@@ -143,7 +144,7 @@ const Footer = () => {
                 href="https://github.com/suniltechs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-black hover:text-orange-primary transition-colors"
+                className="text-2xl text-black dark:text-dark-text hover:text-orange-primary transition-colors"
                 aria-label="GitHub"
                 whileHover={{ y: -5, scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
@@ -152,7 +153,7 @@ const Footer = () => {
               </motion.a>
               <motion.a
                 href="mailto:sunilsowrirajan@gmail.com"
-                className="text-2xl text-black hover:text-orange-primary transition-colors"
+                className="text-2xl text-black dark:text-dark-text hover:text-orange-primary transition-colors"
                 aria-label="Mail"
                 whileHover={{ y: -5, scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
@@ -164,13 +165,15 @@ const Footer = () => {
         </motion.div>
 
         <motion.div 
-          className="border-t border-black/50 mt-12 pt-8 text-center"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.5 }}
+          className="relative mt-16 pt-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <p className="text-black">
-            Designed with <FaBolt className="inline mx-1 text-orange-primary animate-pulse" /> by{' '}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-orange-primary to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-100/30 dark:to-gray-800/20 rounded-2xl -m-4"></div>
+          <p className="text-black dark:text-dark-text">
+            Built with good vibes <span className="inline mx-1 text-orange-primary animate-pulse">🚀</span> by{' '}
             <motion.a
               href="https://www.linkedin.com/in/sunil-sowrirajan-40548826b/"
               target="_blank"
