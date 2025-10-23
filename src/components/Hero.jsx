@@ -37,7 +37,7 @@ const Hero = () => {
   }, [])
 
   return (
-    <section id="home" className="relative bg-cream-light min-h-screen flex items-center pt-20 overflow-hidden">
+    <section id="home" className="relative bg-cream-light min-h-screen flex dark:bg-dark-bg items-center pt-20 overflow-hidden">
       <div className="container mx-auto px-4 z-10">
         <div className="flex flex-col md:flex-row items-center justify-between">
           {/* Left Text Content */}
@@ -47,10 +47,10 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              <h1 className="text-4xl dark:text-dark-text md:text-6xl font-bold mb-4">
                 Hi There, <br /> I'm Sunil <span className="text-primary">Sowrirajan</span>
               </h1>
-              <p className="text-xl mb-6">
+              <p className="text-xl dark:text-dark-text mb-6">
                 I'm into{' '}
                 <span ref={typedRef} className="text-primary font-medium"></span>
               </p>
@@ -68,7 +68,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="text-2xl text-gray-700 hover:text-primary transition-colors duration-300"
+                className="text-2xl text-gray-700 dark:text-dark-text hover:text-primary transition-colors duration-300"
                 variants={floatingVariants}
                 animate="float"
               >
@@ -79,7 +79,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="text-2xl text-gray-700 hover:text-primary transition-colors duration-300"
+                className="text-2xl text-gray-700 dark:text-dark-text hover:text-primary transition-colors duration-300"
                 variants={floatingVariants}
                 animate="float"
               >
@@ -90,7 +90,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Dev"
-                className="text-2xl text-gray-700 hover:text-primary transition-colors duration-300"
+                className="text-2xl text-gray-700 dark:text-dark-text hover:text-primary transition-colors duration-300"
                 variants={floatingVariants}
                 animate="float"
               >
@@ -118,7 +118,7 @@ const Hero = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="absolute -inset-3 mb-10 mr-6 bg-brown opacity-50 rounded-full blur-xl"></div>
+              <div className="absolute -inset-3 mb-10 mr-6 dark:bg-white bg-brown opacity-50 rounded-full blur-xl"></div>
               <motion.img
                 src="/assets/images/hero.jpeg"
                 alt="Sunil Sowrirajan"
