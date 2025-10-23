@@ -70,7 +70,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-cream-lighter">
+    <section id="contact" className="py-20 bg-cream-lighter dark:bg-dark-bg ">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -78,7 +78,7 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold relative inline-block">
+          <h2 className="text-3xl font-bold text-black dark:text-dark-text relative inline-block">
             Get in <span className="text-orange-primary">Touch</span>
             <motion.span 
               className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-primary"
@@ -133,7 +133,7 @@ const Contact = () => {
                   name="name"
                   placeholder="Name"
                   required
-                  className="w-full px-4 py-3 pl-12 border border-orange-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-primary/50 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 pl-12 border border-orange-primary/30 dark:border-dark-primary/30/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-primary/50 focus:border-transparent transition-all"
                 />
                 <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-orange-primary" />
               </motion.div>
@@ -148,7 +148,7 @@ const Contact = () => {
                   name="email"
                   placeholder="Email"
                   required
-                  className="w-full px-4 py-3 pl-12 border border-orange-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-primary/50 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 pl-12 border border-orange-primary/30 dark:border-dark-primary/30/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-primary/50 focus:border-transparent transition-all"
                 />
                 <FaEnvelope className="absolute left-4 top-1/2 transform -translate-y-1/2 text-orange-primary" />
               </motion.div>
@@ -163,7 +163,7 @@ const Contact = () => {
                   placeholder="Message"
                   rows="5"
                   required
-                  className="w-full px-4 py-3 pl-12 border border-orange-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-primary/50 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 pl-12 border border-orange-primary/30 dark:border-dark-primary/30/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-primary/50 focus:border-transparent transition-all"
                 ></textarea>
                 <FaCommentDots className="absolute left-4 top-5 text-orange-primary" />
               </motion.div>
@@ -200,3 +200,4 @@ const Contact = () => {
 }
 
 export default Contact
+
