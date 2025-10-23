@@ -35,8 +35,8 @@ const Skills = () => {
   })
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-cream-lighter to-orange-50">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section id="skills" className="py-20 bg-cream-lighter dark:bg-dark-bg">
+      <div className="container  mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -52,7 +52,7 @@ const Skills = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
             />
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg dark:text-dark-text text-gray-600 max-w-2xl mx-auto">
             Technologies I've worked with and my proficiency level in each
           </p>
         </motion.div>
@@ -74,7 +74,7 @@ const Skills = () => {
                 boxShadow: "0 20px 25px -5px rgba(255, 107, 0, 0.1), 0 10px 10px -5px rgba(255, 107, 0, 0.04)",
                 transition: { type: "spring", stiffness: 400, damping: 10 }
               }}
-              className="group bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-white/30 hover:border-orange-primary/20 transition-all duration-300 hover:bg-white/90"
+              className="group dark:bg-dark-card dark:border-dark-secondary bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-white/30 hover:border-orange-primary/20 transition-all duration-300 hover:bg-white/90"
             >
               <div className="flex flex-col items-center gap-3">
                 <motion.div 
@@ -85,14 +85,14 @@ const Skills = () => {
                     src={skill.icon} 
                     alt={skill.name} 
                     className="w-10 h-10 object-contain"
-                    loading="lazy"
+                    loading="eager"
                   />
                 </motion.div>
-                <span className="font-medium text-gray-800 text-center">{skill.name}</span>
+                <span className="font-medium dark:text-dark-text text-gray-800 text-center">{skill.name}</span>
                 
                 {skill.level && (
                   <div className="w-full mt-2">
-                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                    <div className="flex justify-between text-xs dark:text-dark-text text-gray-500 mb-1">
                       <span>Proficiency</span>
                       <span>{skill.level}%</span>
                     </div>
