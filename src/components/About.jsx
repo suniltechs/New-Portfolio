@@ -14,6 +14,7 @@ const containerVariants = {
   }
 }
 
+
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
@@ -33,7 +34,7 @@ const About = () => {
   })
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white dark:bg-dark-bg">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +42,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold mb-8 relative inline-block">
+          <h2 className="text-3xl font-bold mb-8 text-black dark:text-dark-text relative inline-block">
             <span className="text-orange-primary">About</span> Me
             <motion.span 
               className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-primary"
@@ -63,7 +64,7 @@ const About = () => {
             <motion.img
               src="/assets/images/profile2.jpg"
               alt="Sunil Sowrirajan"
-              className="w-full max-w-md rounded-xl shadow-xl border border-orange-primary/30"
+              className="w-full max-w-md rounded-xl shadow-xl border dark:border-dark-secondary border-orange-primary/30 dark:border-dark-primary/30/30"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 10px 25px -5px rgba(255, 107, 0, 0.2)"
@@ -79,7 +80,7 @@ const About = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <motion.h3 variants={itemVariants} className="text-3xl font-bold mb-4 text-black">
+            <motion.h3 variants={itemVariants} className="text-3xl font-bold mb-4 text-black dark:text-dark-text">
               I'm Sunil
             </motion.h3>
             
@@ -92,7 +93,7 @@ const About = () => {
 
             <motion.p 
               variants={itemVariants}
-              className="text-black mb-6 text-lg leading-relaxed"
+              className="text-black dark:text-dark-text mb-6 text-lg leading-relaxed"
             >
               I'm a Full Stack Developer based in Tamil Nadu, India, a recent graduate in B.Tech in Artificial
               Intelligence and Data Science. I build responsive, interactive web applications using the MERN stack and
@@ -107,29 +108,29 @@ const About = () => {
             >
               <motion.div 
                 variants={itemVariants}
-                className="bg-white p-5 rounded-lg shadow-md border border-orange-primary/10"
+                className="bg-white dark:bg-dark-card p-5 dark:border-dark-secondary rounded-lg shadow-md border border-orange-primary/30 dark:border-dark-primary/30/10"
                 whileHover={{ 
                   scale: 1.03,
                   boxShadow: "0 10px 15px -3px rgba(255, 107, 0, 0.1)"
                 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <p className="text-black">
-                  <span className="font-semibold text-orange-primary">email : </span> sunilsowrirajan@gmail.com
+                <p className="text-black dark:text-dark-text">
+                  <span className="font-semibold text-orange-primary">Email : </span> sunilsowrirajan@gmail.com
                 </p>
               </motion.div>
               
               <motion.div 
                 variants={itemVariants}
-                className="bg-white p-5 rounded-lg shadow-md border border-orange-primary/10"
+                className="bg-white dark:bg-dark-card dark:border-dark-secondary p-5 rounded-lg shadow-md border border-orange-primary/30 dark:border-dark-primary/30/10"
                 whileHover={{ 
                   scale: 1.03,
                   boxShadow: "0 10px 15px -3px rgba(255, 107, 0, 0.1)"
                 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <p className="text-black">
-                  <span className="font-semibold text-orange-primary">place : </span> Thiruvarur, Tamil Nadu
+                <p className="text-black dark:text-dark-text">
+                  <span className="font-semibold text-orange-primary">Place : </span> Thiruvarur, Tamil Nadu
                 </p>
               </motion.div>
             </motion.div>
