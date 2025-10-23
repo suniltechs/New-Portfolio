@@ -32,7 +32,7 @@ const Education = () => {
   }
 
   return (
-    <section id="education" className="py-20 bg-white">
+    <section id="education" className="py-20 bg-white dark:bg-dark-bg">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ const Education = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-4"
         >
-          <h2 className="text-3xl font-bold relative inline-block">
+          <h2 className="text-3xl font-bold relative text-black dark:text-dark-text inline-block">
             My <span className="text-orange-primary">Education</span>
             <motion.span 
               className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-primary"
@@ -52,7 +52,7 @@ const Education = () => {
         </motion.div>
 
         <motion.p 
-          className="text-center text-black italic mb-12 max-w-2xl mx-auto text-lg"
+          className="text-center text-black dark:text-dark-text italic mb-12 max-w-2xl mx-auto text-lg"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.3 }}
@@ -69,10 +69,10 @@ const Education = () => {
         >
           <motion.div 
             variants={itemVariants}
-            className="bg-white rounded-xl shadow-lg overflow-hidden border border-orange-primary/10 hover:shadow-xl hover:border-orange-primary/30 transition-all"
+            className="bg-white dark:border-dark-secondary rounded-xl shadow-lg overflow-hidden border border-orange-primary/30 dark:border-dark-primary/30/10 hover:shadow-xl hover:border-orange-primary/30 dark:border-dark-primary/30/30 transition-all"
             whileHover={{ y: -5 }}
           >
-            <div className="md:flex bg-cream-lighter">
+            <div className="md:flex bg-cream-lighter dark:bg-dark-card ">
               <motion.div 
                 className="md:w-1/3"
                 whileHover={{ scale: 1.02 }}
@@ -86,13 +86,13 @@ const Education = () => {
               </motion.div>
               <div className="p-8 md:w-2/3">
                 <motion.h3 
-                  className="text-2xl font-bold mb-3 text-black"
+                  className="text-2xl font-bold mb-3 text-black dark:text-dark-text"
                   variants={itemVariants}
                 >
                   B.Tech Artificial Intelligence and Data Science
                 </motion.h3>
                 <motion.p 
-                  className="text-black mb-4"
+                  className="text-black dark:text-dark-text mb-4"
                   variants={itemVariants}
                 >
                   Sir Issac Newton College of Engineering and Technology | AU
@@ -113,3 +113,5 @@ const Education = () => {
 }
 
 export default Education
+
+
