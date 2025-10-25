@@ -5,15 +5,6 @@ const experiences = [
   {
     id: 1,
     company: "Technohacks",
-    role: "Python Developer | Internship",
-    period: "Aug 2023 - Sep 2023",
-    description: "Worked on Python-based development projects, focusing on automation scripts, data handling, and application logic. Gained hands-on experience with Python libraries and contributed to real-world project modules.",
-    icon: "🎯",
-    skills: ["Python", "Data Handling", "Problem Solving", "APIs"]
-  },
-  {
-    id: 2,
-    company: "Technohacks",
     role: "Website Developer | Internship",
     period: "Nov 2023 - Dec 2023",
     description: "Developed responsive websites using modern frontend technologies, implemented UI components, and collaborated with team members on web development projects.",
