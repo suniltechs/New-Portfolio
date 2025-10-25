@@ -59,7 +59,7 @@ const Experience = () => {
   }
 
   return (
-    <section id="experience" className="py-20 dark:bg-dark-bg bg-gray-50">
+    <section id="experience" className="py-20 dark:bg-dark-bg bg-cream-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,10 +67,16 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent mb-4">
-            Experience
+          <h2 className="text-3xl font-bold mb-8 text-black dark:text-dark-text relative inline-block">
+            <span className="text-orange-primary">My</span> Experience
+            <motion.span 
+              className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-primary"
+              initial={{ scaleX: 0 }}
+              animate={inView ? { scaleX: 1 } : {}}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            />
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-black dark:text-gray-400 max-w-2xl mx-auto">
             My professional journey and hands-on experience
           </p>
         </motion.div>
@@ -118,7 +124,7 @@ const Experience = () => {
                     >
                       {/* Header */}
                       <div className={`flex flex-col ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
-                        <span className="inline-block px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-medium rounded-full mb-3 self-start md:self-auto">
+                        <span className="inline-block px-4 py-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-medium rounded-full mb-3 self-start">
                           {exp.period}
                         </span>
                         
