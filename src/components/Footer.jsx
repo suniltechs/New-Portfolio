@@ -16,6 +16,7 @@ const Footer = () => {
     { id: 'skills', label: 'Skills' },
     { id: 'education', label: 'Education' },
     { id: 'work', label: 'Projects' },
+    { id: 'publications', label: 'Publications'},
     { id: 'experience', label: 'Experience' },
   ]
 
@@ -43,7 +44,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-white text-black py-16 dark:text-dark-text dark:bg-dark-bg">
+    <footer className="bg-cream-light text-black py-16 dark:text-dark-text dark:bg-dark-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
