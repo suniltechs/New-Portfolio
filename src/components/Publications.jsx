@@ -42,8 +42,21 @@ const Publications = () => {
       date: "May 2025",
       link: "https://drive.google.com/file/d/1gYpkaznqcvD78jLQ5Zqo0L7I_nYNODvK/view",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      gif: "",
-      description: "This research paper explores advanced deep learning techniques for detecting deepfake content in digital media. The study implements convolutional neural networks and recurrent neural networks to analyze facial features and temporal patterns, achieving state-of-the-art accuracy in identifying manipulated media across various datasets."
+      description: "This research paper explores advanced deep learning techniques for detecting deepfake content in digital media. The study implements convolutional neural networks and recurrent neural networks to analyze facial features and temporal patterns, achieving state-of-the-art accuracy in identifying manipulated media across various datasets.",
+      category: "AI Research"
+    },
+    {
+      id: 2,
+      title: "Modern Era of JavaScript: What's Shaping the Future of Web Development?",
+      authors: "Sunil Sowrirajan",
+      journal: "Personal Blog",
+      year: "2024",
+      date: "December 2024",
+      link: "https://dev.to/sunil_s/modern-era-of-javascript--56gn", 
+      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      description: "An in-depth exploration of JavaScript's evolution and the cutting-edge technologies shaping modern web development. Covering Deno, TypeScript, WebAssembly, Svelte, React Server Components, and TensorFlow.js with practical code examples and insights into the future of JavaScript ecosystem.",
+      readTime: "8 min read",
+      category: "Web Development"
     }
   ]
 
@@ -57,7 +70,7 @@ const Publications = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-bold relative text-black dark:text-dark-text inline-block">
-            My <span className="text-primary">Publications</span>
+            My Publications<span className="text-primary"> and Blogs</span>
             <motion.span 
               className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary dark:bg-dark-primary"
               initial={{ scaleX: 0 }}
@@ -98,7 +111,7 @@ const Publications = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-white text-sm font-medium bg-primary dark:bg-dark-primary px-3 py-1 rounded-full">
-                      AI Research
+                      {publication.category}
                     </span>
                   </div>
                 </motion.div>
@@ -137,7 +150,7 @@ const Publications = () => {
                     </div>
                     <div className="flex items-center text-gray-600 dark:text-gray-400">
                       <FaFilePdf className="mr-3 text-primary dark:text-dark-primary" />
-                      <span className="font-medium">{publication.volume}</span>
+                      <span className="font-medium">{publication.volume ? publication.volume : publication.readTime}</span>
                     </div>
                     <div className="flex items-center text-gray-600 dark:text-gray-400">
                       <FaCalendar className="mr-3 text-primary dark:text-dark-primary" />
