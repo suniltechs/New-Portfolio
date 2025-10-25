@@ -36,7 +36,7 @@ const Publications = () => {
       id: 1,
       title: "Deepfake Detection Using Deep Learning",
       authors: "Sunil Sowrirajan",
-      journal: "International Journal of Scientific Research in Engineering and Management (IJSREM)",
+      journal: "IJSREM",
       volume: "Vol. 07, Issue 05",
       year: "2025",
       date: "May 2025",
