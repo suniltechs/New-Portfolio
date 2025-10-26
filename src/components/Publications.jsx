@@ -79,7 +79,7 @@ const Publications = () => {
             />
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 mt-6 max-w-2xl mx-auto">
-            Research contributions and academic publications in the field of Artificial Intelligence and Deep Learning
+            Research contributions and academic publications in the field of Artificial Intelligence and Web Development
           </p>
         </motion.div>
 
