@@ -36,7 +36,7 @@ const Skills = () => {
 
   return (
     <section id="skills" className="py-20 bg-cream-lighter dark:bg-dark-bg">
-      <div className="container  mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -53,7 +53,7 @@ const Skills = () => {
             />
           </h2>
           <p className="mt-4 text-lg dark:text-dark-text text-gray-600 max-w-2xl mx-auto">
-            Technologies I've worked with and my proficiency level in each
+            Technologies I've worked with
           </p>
         </motion.div>
 
@@ -88,28 +88,9 @@ const Skills = () => {
                     loading="eager"
                   />
                 </motion.div>
-                <span className="font-medium dark:text-dark-text text-gray-800 text-center">{skill.name}</span>
-                
-                {skill.level && (
-                  <div className="w-full mt-2">
-                    <div className="flex justify-between text-xs dark:text-dark-text text-gray-500 mb-1">
-                      <span>Proficiency</span>
-                      <span>{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                      <motion.div
-                        className="h-full rounded-full bg-gradient-to-r from-orange-300 to-orange-primary"
-                        initial={{ width: 0 }}
-                        animate={inView ? { width: `${skill.level}%` } : {}}
-                        transition={{ 
-                          duration: 1.5, 
-                          delay: 0.3 + index * 0.03,
-                          ease: "easeInOut"
-                        }}
-                      />
-                    </div>
-                  </div>
-                )}
+                <span className="font-medium dark:text-dark-text text-gray-800 text-center">
+                  {skill.name}
+                </span>
               </div>
             </motion.div>
           ))}
