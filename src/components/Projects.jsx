@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     title: 'SunDrift Beach Resort – Luxury Hotel Website',
     description:
-      'A premium, fully responsive luxury beach resort website built with React, TypeScript, Vite, and Tailwind CSS. Features an animated hero slider, modern booking form, parallax effects, glass-morphism UI, micro-interactions, and a smooth user experience powered by Framer Motion.',
+      'A premium, fully responsive luxury beach resort website built with React, TypeScript, and Tailwind CSS. Features an animated hero slider, glass-morphism UI, micro-interactions, and a smooth user experience powered by Framer Motion.',
     image: '/assets/images/projects/sundrift.png',
     viewLink: 'https://hotelsundrift.netlify.app/',
     codeLink: 'https://github.com/suniltechs/SandDrift_Beach_Resort',
