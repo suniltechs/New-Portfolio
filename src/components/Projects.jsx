@@ -21,7 +21,7 @@ const projects = [
     image: '/assets/images/projects/E learning.png',
     viewLink: 'https://etech-new.netlify.app/',
     codeLink: 'https://github.com/suniltechs/Etech-new',
-    tags: ['React', 'Tailwind CSS', 'Responsive Design']
+    tags: ['React', 'Tailwind CSS', 'Responsive Design', 'Vite']
   }
   ,
   {
