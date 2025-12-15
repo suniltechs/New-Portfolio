@@ -130,7 +130,7 @@ const About = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <p className="text-black dark:text-dark-text">
-                  <span className="font-semibold text-orange-primary">Place : </span> Thiruvarur, Tamil Nadu
+                  <span className="font-semibold text-orange-primary">Place : </span> Chennai, Tamil Nadu
                 </p>
               </motion.div>
             </motion.div>
@@ -143,7 +143,7 @@ const About = () => {
               whileTap={{ scale: 0.98 }}
             >
               <motion.a
-                href="https://drive.google.com/file/d/1Keri4k0hG28EmLwXJWBsK2isT1Oi3Zye/view?usp=sharing"
+                href="https://drive.google.com/file/d/1MyD49ckJXkU9exxZtKDHIfjNM0oCyRzJ/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white bg-orange-primary"
