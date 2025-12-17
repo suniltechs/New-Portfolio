@@ -10,7 +10,17 @@ const experiences = [
     description: "Developed responsive websites using modern frontend technologies, implemented UI components, and collaborated with team members on web development projects.",
     icon: "🥇",
     skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS", "Responsive Design"]
-  }
+  },
+  {
+  id: 2,
+  company: "ScalingWolf AI",
+  role: "Full Stack Developer Intern | Internship",
+  period: "Dec 2024 - Present",
+  description: "Working on the development of full-stack web applications by building responsive user interfaces, developing backend APIs, and integrating databases for scalable, AI-driven solutions. Collaborating with the team to implement features, optimize performance, and follow best development practices.",
+  icon: "🚀",
+  skills: ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "Postgresql", "REST APIs", "Git", "LLMs"]
+}
+
 ]
 
 const Experience = () => {
