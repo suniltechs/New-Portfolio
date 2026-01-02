@@ -191,43 +191,7 @@ const Experience = () => {
                 </motion.div>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Divider */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={inView ? { scaleX: 1 } : {}}
-            transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
-            className="relative h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-20"
-          >
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-0.5 bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 blur-sm" />
-          </motion.div>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-center mt-20"
-          >
-            <div className="inline-flex flex-col items-center gap-6 p-8 bg-white dark:bg-dark-card rounded-2xl border border-orange-primary/10 shadow-xl max-w-3xl">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Ready to Build Something Amazing?
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-lg">
-                Let's collaborate on your next project and create exceptional
-                digital experiences together.
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group px-8 py-3 bg-orange-primary text-white font-semibold rounded-lg shadow-lg hover:shadow-orange-primary/20 transition-all duration-300 flex items-center gap-3"
-              >
-                <span>Start a Conversation</span>
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-            </div>
-          </motion.div>
+          </motion.div>          
         </div>
       </div>
     </section>
