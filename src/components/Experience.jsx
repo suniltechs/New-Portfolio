@@ -102,7 +102,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-20 dark:bg-dark-bg bg-white">
+    <section id="experience" className="py-20 dark:bg-dark-bg bg-cream-light">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div
