@@ -1,5 +1,13 @@
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  Rocket,
+  Trophy,
+  Calendar,
+  ChevronRight,
+  Sparkles,
+  ExternalLink,
+} from "lucide-react";
 
 const experiences = [
   {
@@ -7,192 +15,223 @@ const experiences = [
     company: "Technohacks",
     role: "Website Developer | Internship",
     period: "Nov 2023 - Dec 2023",
-    description: "Developed responsive websites using modern frontend technologies, implemented UI components, and collaborated with team members on web development projects.",
-    icon: "🥇",
-    skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS", "Responsive Design"]
+    description:
+      "Developed responsive websites using modern frontend technologies, implemented UI components, and collaborated with team members on web development projects.",
+    icon: <Trophy className="w-5 h-5 text-white" />,
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "Tailwind CSS",
+      "Responsive Design",
+    ],
+    link: "#",
   },
   {
-  id: 2,
-  company: "ScalingWolf AI",
-  role: "Full Stack Developer Intern | Internship",
-  period: "Dec 2024 - Present",
-  description: "Working on the development of full-stack web applications by building responsive user interfaces, developing backend APIs, and integrating databases for scalable, AI-driven solutions. Collaborating with the team to implement features, optimize performance, and follow best development practices.",
-  icon: "🚀",
-  skills: ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "Postgresql", "REST APIs", "Git", "LLMs"]
-}
-
-]
+    id: 2,
+    company: "ScalingWolf AI",
+    role: "Full Stack Developer | Internship",
+    period: "Dec 2025 - Present",
+    description:
+      "Working on the development of full-stack web applications by building responsive user interfaces, developing backend APIs, and integrating databases for scalable, AI-driven solutions.",
+    icon: <Rocket className="w-5 h-5 text-white" />,
+    skills: [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "Swagger UI",
+      "Golang",
+      "PostgreSQL",
+      "REST APIs",
+      "Git",
+      "LLMs",
+    ],
+    link: "#",
+  },
+];
 
 const Experience = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
-  })
+    threshold: 0.05,
+  });
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.4
-      }
-    }
-  }
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
 
-  const itemVariants = {
-    hidden: { 
+  const cardVariants = {
+    hidden: {
       opacity: 0,
-      y: 50
+      y: 40,
+      scale: 0.95,
     },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
         type: "spring",
-        stiffness: 80,
-        damping: 12,
-        duration: 0.8
-      }
-    }
-  }
+        stiffness: 100,
+        damping: 15,
+        mass: 0.5,
+      },
+    },
+  };
 
-  const lineVariants = {
-    hidden: { scaleY: 0, originY: 0 },
+  const glowVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
     visible: {
-      scaleY: 1,
+      opacity: 1,
+      scale: 1,
       transition: {
-        duration: 1.2,
-        ease: [0.43, 0.13, 0.23, 0.96]
-      }
-    }
-  }
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
 
   return (
-    <section id="experience" className="py-20 dark:bg-dark-bg bg-cream-light">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-20 dark:bg-dark-bg bg-white">
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold mb-8 text-black dark:text-dark-text relative inline-block">
-            <span className="text-orange-primary">My</span> Experience
-            <motion.span 
+          <h2 className="text-3xl font-bold dark:text-dark-text relative inline-block">
+            Professional <span className="text-orange-primary">Experience</span>
+            <motion.span
               className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-primary"
               initial={{ scaleX: 0 }}
               animate={inView ? { scaleX: 1 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
             />
           </h2>
-          <p className="text-lg text-black dark:text-gray-400 max-w-2xl mx-auto">
-            My professional journey and hands-on experience
+          <p className="mt-8 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            My path through innovation and technology
           </p>
         </motion.div>
 
+        {/* Experience Cards */}
         <div ref={ref} className="max-w-6xl mx-auto">
-          <div className="relative">
-            {/* Timeline line */}
-            <motion.div 
-              className="absolute left-4 md:left-1/2 h-full w-1 bg-gradient-to-b from-orange-400 to-orange-600 -ml-0.5"
-              variants={lineVariants}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-            />
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="space-y-8"
+          >
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={exp.id}
+                variants={cardVariants}
+                className="relative group lg:pl-8 lg:border-l-2 lg:border-gray-200 lg:dark:border-gray-700"
+              >
+                {/* Timeline dot */}
+                <div className="absolute -left-[9px] top-1/2 -translate-y-1/2 hidden lg:block">
+                  <div className="w-4 h-4 rounded-full bg-orange-primary border-4 border-white dark:border-dark-bg shadow-sm" />
+                </div>
 
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              className="space-y-12"
-            >
-              {experiences.map((exp, index) => (
-                <motion.div 
-                  key={exp.id}
-                  variants={itemVariants}
-                  className="relative group"
+                {/* Main Card */}
+                <motion.div
+                  whileHover={{
+                    y: -8,
+                    boxShadow:
+                      "0 20px 25px -5px rgba(255, 107, 0, 0.1), 0 10px 10px -5px rgba(255, 107, 0, 0.04)",
+                  }}
+                  className="bg-white dark:bg-dark-card rounded-xl border border-orange-primary/10 hover:border-orange-primary/30 transition-all duration-300 overflow-hidden shadow-lg p-6 lg:p-8"
                 >
-                  {/* Timeline dot */}
-                  <motion.div 
-                    className="absolute left-4 md:left-1/2 -ml-4 top-6 w-8 h-8 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg flex items-center justify-center text-white z-10 border-2 border-white dark:border-dark-bg"
-                    whileHover={{ scale: 1.2, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <span className="text-sm">{exp.icon}</span>
-                  </motion.div>
-
-                  {/* Experience card */}
-                  <div className={`ml-16 md:ml-0 ${index % 2 === 0 ? 'md:ml-auto md:pl-12' : 'md:mr-auto md:pr-12'} md:w-[45%]`}>
-                    <motion.div 
-                      whileHover={{ 
-                        scale: 1.02,
-                        y: -5,
-                        boxShadow: "0 20px 40px -10px rgba(255, 107, 0, 0.15)"
-                      }}
-                      className="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 hover:border-orange-300 dark:hover:border-orange-400 transition-all duration-300"
-                    >
-                      {/* Header */}
-                      <div className={`flex flex-col ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
-                        <span className="inline-block px-4 py-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-medium rounded-full mb-3 self-start">
-                          {exp.period}
-                        </span>
-                        
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-6">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 rounded-xl bg-orange-primary shadow-lg">
+                        {exp.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
                           {exp.company}
                         </h3>
-                        
-                        <p className="text-lg font-semibold text-orange-500 dark:text-orange-400 mb-4">
-                          {exp.role}
-                        </p>
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                        {exp.description}
-                      </p>
-
-                      {/* Skills */}
-                      {exp.skills && (
-                        <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                          {exp.skills.map((skill, skillIndex) => (
-                            <span 
-                              key={skillIndex}
-                              className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full border border-gray-200 dark:border-gray-700"
-                            >
-                              {skill}
-                            </span>
-                          ))}
+                        <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                          <Calendar className="w-4 h-4" />
+                          <span>{exp.period}</span>
                         </div>
-                      )}
-                    </motion.div>
+                      </div>
+                    </div>
+
+                    <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-orange-primary text-white text-xs font-medium">
+                      {exp.role}
+                    </span>
+                  </div>
+
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                    {exp.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {exp.skills.map((skill, skillIndex) => (
+                      <span
+                        key={skillIndex}
+                        className="text-xs bg-orange-primary/10 text-orange-primary px-3 py-1 rounded-full font-medium"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+              </motion.div>
+            ))}
+          </motion.div>
 
-        {/* Call to action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="text-center mt-16"
-        >
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
-            Ready to bring your next project to life?{" "}
-            <a 
-              href="#contact" 
-              className="text-orange-500 dark:text-orange-400 font-semibold hover:underline underline-offset-4"
-            >
-              Let's connect!
-            </a>
-          </p>
-        </motion.div>
+          {/* Divider */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : {}}
+            transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
+            className="relative h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-20"
+          >
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-0.5 bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 blur-sm" />
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="text-center mt-20"
+          >
+            <div className="inline-flex flex-col items-center gap-6 p-8 bg-white dark:bg-dark-card rounded-2xl border border-orange-primary/10 shadow-xl max-w-3xl">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Ready to Build Something Amazing?
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-lg">
+                Let's collaborate on your next project and create exceptional
+                digital experiences together.
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group px-8 py-3 bg-orange-primary text-white font-semibold rounded-lg shadow-lg hover:shadow-orange-primary/20 transition-all duration-300 flex items-center gap-3"
+              >
+                <span>Start a Conversation</span>
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Experience
+export default Experience;
