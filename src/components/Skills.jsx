@@ -43,7 +43,7 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold relative inline-block text-gray-900">
+          <h2 className="text-4xl font-bold relative inline-block dark:text-dark-text">
             My <span className="text-orange-primary">Skills</span>
             <motion.span 
               className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-1.5 bg-orange-primary rounded-full"
