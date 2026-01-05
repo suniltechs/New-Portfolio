@@ -126,7 +126,7 @@ const Footer = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <FaMapMarkerAlt className="mr-3 text-orange-primary" />
-              Thiruvarur, Tamil Nadu
+              Chennai, Tamil Nadu
             </motion.div>
 
             <div className="flex space-x-5">
