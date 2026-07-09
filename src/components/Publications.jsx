@@ -20,13 +20,15 @@ const Publications = () => {
   }
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 40, opacity: 0, scale: 0.95 },
     visible: {
       y: 0,
       opacity: 1,
+      scale: 1,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        type: "spring",
+        stiffness: 100,
+        damping: 20
       }
     }
   }
@@ -61,25 +63,26 @@ const Publications = () => {
   ]
 
   return (
-    <section id="publications" className="py-20 bg-white dark:bg-dark-bg">
-      <div className="container mx-auto px-4">
+    <section id="publications" className="py-12 lg:py-16 relative bg-gray-50 dark:bg-[#0a0a0a] overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Modern Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold relative text-black dark:text-dark-text inline-block">
-            My Publications<span className="text-primary"> and Blogs</span>
-            <motion.span 
-              className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary dark:bg-dark-primary"
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight relative inline-block">
+            Publications <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-primary to-orange-400">& Blogs</span>
+            <motion.span
+              className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-orange-primary rounded-full"
               initial={{ scaleX: 0 }}
               animate={inView ? { scaleX: 1 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
             />
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mt-6 max-w-2xl mx-auto">
-            Research contributions and academic publications in the field of Artificial Intelligence and Web Development
+          <p className="text-base text-gray-600 dark:text-gray-400 mt-6 max-w-2xl mx-auto font-medium">
+            Research contributions and deep dives into AI and Web Development.
           </p>
         </motion.div>
 
@@ -88,101 +91,78 @@ const Publications = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="max-w-6xl mx-auto"
+          className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8"
         >
-          {publications.map((publication, index) => (
+          {publications.map((publication) => (
             <motion.div
               key={publication.id}
               variants={itemVariants}
-              className="bg-white dark:bg-dark-card rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-dark-secondary hover:shadow-2xl transition-all duration-300 mb-8"
-              whileHover={{ y: -8 }}
+              className="group relative rounded-3xl p-[1px] bg-gradient-to-b from-gray-200 to-white dark:from-gray-800 dark:to-dark-card hover:from-orange-primary/50 hover:to-orange-primary/10 transition-colors duration-500 overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-orange-primary/20"
             >
-              <div className="lg:flex">
-                {/* Publication Image */}
-                <motion.div 
-                  className="lg:w-2/5 relative overflow-hidden"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+              {/* Inner Card */}
+              <div className="relative h-full bg-white dark:bg-dark-card rounded-[1.4rem] overflow-hidden flex flex-col">
+                
+                {/* Image Header */}
+                <div className="relative h-48 sm:h-56 overflow-hidden">
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                   <img
                     src={publication.image}
                     alt={publication.title}
-                    className="w-full h-64 lg:h-full object-cover"
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <span className="text-white text-sm font-medium bg-primary dark:bg-dark-primary px-3 py-1 rounded-full">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10" />
+                  
+                  {/* Category Badge */}
+                  <div className="absolute bottom-4 left-6 z-20">
+                    <span className="px-3 py-1 bg-orange-primary/90 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg">
                       {publication.category}
                     </span>
                   </div>
-                </motion.div>
-
-                {/* Publication Details */}
-                <div className="p-8 lg:w-3/5">
-                  <motion.h3 
-                    className="text-2xl font-bold mb-4 text-black dark:text-dark-text leading-tight"
-                    variants={itemVariants}
-                  >
-                    {publication.title}
-                  </motion.h3>
-
-                  <motion.p 
-                    className="text-gray-700 dark:text-gray-300 mb-4 text-lg font-medium"
-                    variants={itemVariants}
-                  >
-                    {publication.authors}
-                  </motion.p>
-
-                  <motion.p 
-                    className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed"
-                    variants={itemVariants}
-                  >
-                    {publication.description}
-                  </motion.p>
-
-                  {/* Publication Metadata */}
-                  <motion.div 
-                    className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"
-                    variants={itemVariants}
-                  >
-                    <div className="flex items-center text-gray-600 dark:text-gray-400">
-                      <FaBook className="mr-3 text-primary dark:text-dark-primary" />
-                      <span className="font-medium">{publication.journal}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600 dark:text-gray-400">
-                      <FaFilePdf className="mr-3 text-primary dark:text-dark-primary" />
-                      <span className="font-medium">{publication.volume ? publication.volume : publication.readTime}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600 dark:text-gray-400">
-                      <FaCalendar className="mr-3 text-primary dark:text-dark-primary" />
-                      <span className="font-medium">{publication.date}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600 dark:text-gray-400">
-                      <span className="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
-                      <span className="font-medium">Published</span>
-                    </div>
-                  </motion.div>
-
-                  {/* Action Buttons */}
-                  <motion.div 
-                    className="flex flex-wrap gap-4"
-                    variants={itemVariants}
-                  >
-                    <a
-                      href={publication.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-6 py-3 bg-primary dark:bg-dark-primary text-white rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300 hover:shadow-lg"
-                    >
-                      <FaExternalLinkAlt className="mr-2" />
-                      Read Online
-                    </a>
-                  </motion.div>
                 </div>
-              </div>
 
-              {/* Decorative Elements
-              <div className="absolute top-4 right-4 w-3 h-3 bg-primary dark:bg-dark-primary rounded-full opacity-60"></div>
-              <div className="absolute bottom-4 left-4 w-2 h-2 bg-primary dark:bg-dark-primary rounded-full opacity-40"></div> */}
+                {/* Content Body */}
+                <div className="p-6 sm:p-8 relative flex-grow flex flex-col">
+                  {/* Floating Action Button */}
+                  <a
+                    href={publication.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute -top-6 right-6 w-12 h-12 bg-white dark:bg-[#1a1a1a] text-orange-primary rounded-full flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100 dark:border-gray-800 group-hover:bg-orange-primary group-hover:text-white transition-all duration-300 z-30 hover:scale-110 group-hover:shadow-orange-primary/40"
+                    aria-label="Read Publication"
+                  >
+                    <FaExternalLinkAlt className="w-5 h-5" />
+                  </a>
+
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight group-hover:text-orange-primary transition-colors duration-300 pr-10">
+                    {publication.title}
+                  </h3>
+                  
+                  <p className="text-sm font-semibold text-orange-primary mb-5">
+                    By {publication.authors}
+                  </p>
+                  
+                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed mb-8 flex-grow line-clamp-4 group-hover:line-clamp-none transition-all duration-500">
+                    {publication.description}
+                  </p>
+
+                  {/* Metadata Footer */}
+                  <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-100 dark:border-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                        <FaBook className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="truncate">{publication.journal}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                        <FaCalendar className="w-3.5 h-3.5" />
+                      </div>
+                      <span>{publication.date}</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </motion.div>
           ))}
         </motion.div>

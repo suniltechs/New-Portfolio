@@ -32,7 +32,6 @@ const Navbar = ({ activeSection }) => {
     { id: 'work', label: 'Work' },
     { id: 'publications', label: 'Publications'},
     { id: 'experience', label: 'Experience' },
-    { id: 'contact', label: 'Contact' },
   ]
 
   const scrollToSection = (sectionId) => {
@@ -83,8 +82,8 @@ const Navbar = ({ activeSection }) => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:block">
-            <ul className="flex items-center space-x-2">
+          <nav className="hidden lg:block">
+            <ul className="flex items-center space-x-6">
               {navLinks.map((link, index) => (
                 <motion.li 
                   key={link.id}
@@ -98,17 +97,17 @@ const Navbar = ({ activeSection }) => {
                       e.preventDefault()
                       scrollToSection(link.id)
                     }}
-                    className={`relative px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 ${
+                    className={`relative py-1 text-base font-medium transition-colors duration-300 ${
                       activeSection === link.id 
                         ? 'text-orange-primary' 
-                        : 'text-gray-700 dark:text-dark-text hover:text-orange-primary'
+                        : 'text-gray-600 dark:text-gray-300 hover:text-orange-primary'
                     }`}
                   >
                     {link.label}
                     {activeSection === link.id && (
                       <motion.div 
                         layoutId="activeTab"
-                        className="absolute inset-0 bg-orange-primary/10 rounded-full -z-10"
+                        className="absolute -bottom-1 left-0 right-0 h-[2px] bg-orange-primary"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -118,12 +117,22 @@ const Navbar = ({ activeSection }) => {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
+            <a 
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('contact');
+              }}
+              className="hidden md:block px-6 py-2 rounded-lg border border-orange-primary text-orange-primary hover:bg-orange-primary hover:text-white transition-colors duration-300 font-medium"
+            >
+              Let's Talk
+            </a>
             <ThemeToggle />
             
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="md:hidden p-2 rounded-xl bg-orange-primary/10 text-orange-primary focus:outline-none transition-transform active:scale-95"
+              className="lg:hidden p-2 rounded-xl bg-orange-primary/10 text-orange-primary focus:outline-none transition-transform active:scale-95"
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
