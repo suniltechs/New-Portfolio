@@ -4,7 +4,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f8fafc;
+  background-color: #fff5ef;
   color: #0f172a;
 }
 
@@ -56,5 +56,3 @@ body.dark {
 ::-webkit-scrollbar-thumb {
   @apply bg-orange-primary dark:bg-dark-primary rounded-full;
 }
-
-

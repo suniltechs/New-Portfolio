@@ -66,7 +66,7 @@ const Experience = () => {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="experience" className="py-12 lg:py-16 dark:bg-dark-bg bg-cream-light overflow-hidden">
+    <section id="experience" className="py-12 lg:py-16 dark:bg-dark-bg bg-cream-lighter overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div
@@ -116,7 +116,7 @@ const Experience = () => {
                   }`}
                 >
                   {/* Icon marking the position on timeline */}
-                  <div className="absolute left-[20px] lg:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-orange-primary flex items-center justify-center text-white border-4 border-cream-light dark:border-dark-bg z-10 shadow-md">
+                  <div className="absolute left-[20px] lg:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-orange-primary flex items-center justify-center text-white border-4 border-cream-lighter dark:border-dark-bg z-10 shadow-md">
                     {exp.icon}
                   </div>
 

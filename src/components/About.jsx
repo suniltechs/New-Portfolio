@@ -1,6 +1,7 @@
 import { FaChevronRight } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { GraduationCap, Mail, MapPin } from 'lucide-react'
 
 // Animation variants
 const containerVariants = {
@@ -16,7 +17,7 @@ const containerVariants = {
 
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 24, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -34,66 +35,78 @@ const About = () => {
   })
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-dark-bg">
-      <div className="container mx-auto px-4">
+    <section id="about" className="relative overflow-hidden bg-cream-lighter py-16 dark:bg-dark-bg">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-primary/30 to-transparent" />
+      <div className="container relative z-10 mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          className="mx-auto mb-10 max-w-3xl text-center"
         >
-          <h2 className="text-3xl font-bold mb-8 text-black dark:text-dark-text relative inline-block">
+          <h2 className="relative inline-block text-3xl font-bold text-gray-950 dark:text-white md:text-4xl">
             <span className="text-orange-primary">About</span> Me
             <motion.span 
-              className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-primary"
+              className="absolute bottom-[-12px] left-1/2 h-1 w-20 -translate-x-1/2 rounded-full bg-orange-primary"
               initial={{ scaleX: 0 }}
               animate={inView ? { scaleX: 1 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
             />
           </h2>
+          <p className="mx-auto mt-7 max-w-2xl text-sm font-medium leading-relaxed text-gray-600 dark:text-gray-400 md:text-base">
+            I turn ideas into responsive, practical digital products using modern JavaScript, thoughtful UI, and a habit of learning by building.
+          </p>
         </motion.div>
 
-        <div ref={ref} className="flex flex-col md:flex-row items-center gap-12">
-          {/* Image Section */}
+        <div ref={ref} className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] xl:gap-12">
           <motion.div 
-            className="md:w-1/2 flex justify-center"
+            className="relative mx-auto w-full max-w-sm md:max-w-md"
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <motion.img
-              src="/assets/images/profile2.jpg"
-              alt="Sunil Sowrirajan"
-              className="w-full max-w-md rounded-xl shadow-xl border dark:border-dark-secondary border-orange-primary/30 dark:border-dark-primary/30/30"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 25px -5px rgba(255, 107, 0, 0.2)"
-              }}
-              transition={{ type: "spring", stiffness: 300 }}
-            />
+            <motion.div
+              className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-2.5 shadow-xl shadow-gray-950/10 dark:border-white/10 dark:bg-dark-card"
+              whileHover={{ y: -6 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+            >
+              <div className="relative overflow-hidden rounded-[1.25rem]">
+                <img
+                  src="/assets/images/profile2.jpg"
+                  alt="Sunil Sowrirajan"
+                  className="aspect-[4/5] w-full object-cover"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-gray-950/80 via-gray-950/10 to-transparent p-4">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-gray-950 shadow-lg backdrop-blur">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                    Open to opportunities
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Content Section */}
           <motion.div 
-            className="md:w-1/2"
+            className="w-full"
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <motion.h3 variants={itemVariants} className="text-3xl font-bold mb-4 text-black dark:text-dark-text">
-              I'm Sunil
+            <motion.h3 variants={itemVariants} className="text-2xl font-black tracking-tight text-gray-950 dark:text-white md:text-3xl">
+              I'm Sunil Sowrirajan
             </motion.h3>
             
             <motion.span 
               variants={itemVariants}
-              className="inline-block bg-orange-primary text-white px-4 py-1.5 rounded-full text-sm mb-6 font-medium"
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-orange-primary px-3.5 py-1.5 text-xs font-bold text-white shadow-lg shadow-orange-primary/20"
             >
+              <GraduationCap className="h-3.5 w-3.5" />
               Full Stack Developer (MERN)
             </motion.span>
 
             <motion.p 
               variants={itemVariants}
-              className="text-black dark:text-dark-text mb-6 text-lg leading-relaxed"
+              className="mt-5 max-w-2xl text-base leading-7 text-gray-700 dark:text-gray-300"
             >
               I'm a Full Stack Developer based in Tamil Nadu, India, a recent graduate in B.Tech in Artificial
               Intelligence and Data Science. I build responsive, interactive web applications using the MERN stack and
@@ -101,41 +114,32 @@ const About = () => {
               skills through hands-on projects.
             </motion.p>
 
-            {/* Info Cards */}
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
+            <motion.div
               variants={containerVariants}
+              className="mt-7 grid gap-3 sm:grid-cols-2"
             >
-              <motion.div 
+              <motion.a
                 variants={itemVariants}
-                className="bg-white dark:bg-dark-card p-5 dark:border-dark-secondary rounded-lg shadow-md border border-orange-primary/30 dark:border-dark-primary/30/10"
-                whileHover={{ 
-                  scale: 1.03,
-                  boxShadow: "0 10px 15px -3px rgba(255, 107, 0, 0.1)"
-                }}
-                transition={{ type: "spring", stiffness: 300 }}
+                href="mailto:sunilsowrirajan@gmail.com"
+                className="flex items-center gap-2.5 rounded-2xl border border-gray-200 bg-white p-3 text-xs font-bold text-gray-800 shadow-sm transition-all hover:-translate-y-1 hover:border-orange-primary/40 hover:shadow-lg hover:shadow-orange-primary/10 dark:border-white/10 dark:bg-dark-card dark:text-dark-text"
               >
-                <p className="text-black dark:text-dark-text">
-                  <span className="font-semibold text-orange-primary">Email : </span> sunilsowrirajan@gmail.com
-                </p>
-              </motion.div>
-              
-              <motion.div 
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-orange-primary/10 text-orange-primary">
+                  <Mail className="h-4 w-4" />
+                </span>
+                <span className="min-w-0 truncate">sunilsowrirajan@gmail.com</span>
+              </motion.a>
+
+              <motion.div
                 variants={itemVariants}
-                className="bg-white dark:bg-dark-card dark:border-dark-secondary p-5 rounded-lg shadow-md border border-orange-primary/30 dark:border-dark-primary/30/10"
-                whileHover={{ 
-                  scale: 1.03,
-                  boxShadow: "0 10px 15px -3px rgba(255, 107, 0, 0.1)"
-                }}
-                transition={{ type: "spring", stiffness: 300 }}
+                className="flex items-center gap-2.5 rounded-2xl border border-gray-200 bg-white p-3 text-xs font-bold text-gray-800 shadow-sm dark:border-white/10 dark:bg-dark-card dark:text-dark-text"
               >
-                <p className="text-black dark:text-dark-text">
-                  <span className="font-semibold text-orange-primary">Place : </span> Chennai, Tamil Nadu
-                </p>
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-orange-primary/10 text-orange-primary">
+                  <MapPin className="h-4 w-4" />
+                </span>
+                <span>Chennai, Tamil Nadu</span>
               </motion.div>
             </motion.div>
 
-            {/* Resume Button */}
             <motion.div 
               variants={itemVariants}
               className="mt-6"
@@ -146,7 +150,7 @@ const About = () => {
                 href="https://drive.google.com/file/d/1MyD49ckJXkU9exxZtKDHIfjNM0oCyRzJ/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white bg-orange-primary"
+                className="inline-flex items-center rounded-full bg-gray-950 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-gray-950/10 transition-colors hover:bg-orange-primary dark:bg-white dark:text-gray-950 dark:hover:bg-orange-primary dark:hover:text-white"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 10px 25px -5px rgba(255, 107, 0, 0.3)"

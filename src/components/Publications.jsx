@@ -63,7 +63,7 @@ const Publications = () => {
   ]
 
   return (
-    <section id="publications" className="py-12 lg:py-16 relative bg-gray-50 dark:bg-[#0a0a0a] overflow-hidden">
+    <section id="publications" className="py-12 lg:py-16 relative bg-cream-lighter dark:bg-dark-bg overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Modern Header */}
         <motion.div

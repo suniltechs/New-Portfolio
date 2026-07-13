@@ -44,7 +44,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-cream-light text-black py-16 dark:text-dark-text dark:bg-dark-bg">
+    <footer className="bg-cream-lighter text-black py-16 dark:text-dark-text dark:bg-dark-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
