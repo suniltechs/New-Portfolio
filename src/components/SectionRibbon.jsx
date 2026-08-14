@@ -1,40 +1,58 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 const ribbonItems = [
-  'MERN Stack',
-  'Available 2026',
-  'Chennai, India',
-  'Full Stack Developer',
-  'AI + Data Science',
-  'Responsive UI',
+  'Ideas into interfaces',
+  'React & modern JavaScript',
+  'Node.js & MongoDB',
+  'AI-powered products',
+  'Responsive by default',
+  'Open to opportunities',
 ]
 
 const SectionRibbon = () => {
-  const items = [...ribbonItems, ...ribbonItems]
+  const reduceMotion = useReducedMotion()
 
   return (
-    <div className="relative -my-1 overflow-hidden bg-cream-lighter py-5 dark:bg-dark-bg">
-      <div className="absolute inset-x-0 top-1/2 h-px bg-orange-primary/20" />
-      <div className="-mx-8 rotate-[-2deg] overflow-hidden bg-gray-950 py-4 dark:bg-black">
+    <section
+      className="relative isolate overflow-hidden bg-transparent"
+      aria-label="Sunil's development focus"
+    >
+      <p className="sr-only">
+        Sunil builds responsive full-stack and AI-powered products with React,
+        Node.js, and MongoDB, and is open to new opportunities.
+      </p>
+
+      <div className="relative overflow-hidden border-y-2 border-orange-primary bg-transparent py-4 sm:py-5">
         <motion.div
-          className="flex w-max items-center gap-10"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+          aria-hidden="true"
+          className="flex w-max items-center"
+          animate={reduceMotion ? undefined : { x: ['0%', '-50%'] }}
+          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
         >
-          {items.map((item, index) => (
-            <div
-              key={`${item}-${index}`}
-              className="flex shrink-0 items-center gap-10 text-white"
-            >
-              <span className="text-lg font-black tracking-tight sm:text-2xl md:text-3xl">
-                {item}
-              </span>
-              <span className="grid h-3 w-3 place-items-center rounded-full bg-orange-primary shadow-[0_0_18px_rgba(255,107,0,0.75)]" />
+          {[0, 1].map((group) => (
+            <div key={group} className="flex shrink-0 items-center">
+              {ribbonItems.map((item, index) => (
+                <div
+                  key={item}
+                  className="flex shrink-0 items-center gap-5 pr-8 text-gray-900 dark:text-white sm:gap-7 sm:pr-12"
+                >
+                  <span className="whitespace-nowrap text-base font-bold tracking-[-0.02em] sm:text-xl md:text-2xl">
+                    {item}
+                  </span>
+                  <span
+                    className={`h-2.5 w-2.5 shrink-0 rotate-45 ${
+                      index % 2 === 0
+                        ? 'bg-orange-primary shadow-[0_0_16px_rgba(255,107,0,0.8)]'
+                        : 'border-2 border-orange-primary bg-transparent'
+                    }`}
+                  />
+                </div>
+              ))}
             </div>
           ))}
         </motion.div>
       </div>
-    </div>
+    </section>
   )
 }
 

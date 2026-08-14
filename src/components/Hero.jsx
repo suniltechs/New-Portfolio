@@ -47,8 +47,9 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl dark:text-dark-text md:text-6xl font-bold mb-4">
-                Hi There, <br /> I'm Sunil <span className="text-primary">Sowrirajan</span>
+              <h1 className="text-4xl dark:text-dark-text md:text-5xl font-bold mb-4">
+                <span className="block md:whitespace-nowrap">Hi There, I'm Sunil</span>
+                <span className="block text-primary">Sowrirajan</span>
               </h1>
               <p className="text-xl dark:text-dark-text mb-6">
                 I'm into{' '}
@@ -190,11 +191,6 @@ const Hero = () => {
         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
       />
       <motion.div 
-        className="absolute bottom-[20%] right-[20%] w-4 h-4 rounded-full bg-primary opacity-10"
-        animate={{ y: [0, 12, 0], x: [0, 8, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
-      />
-      <motion.div 
         className="absolute bottom-[25%] right-[15%] w-6 h-6 bg-accent opacity-15 rounded-lg"
         animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.9 }}
@@ -236,11 +232,6 @@ const Hero = () => {
         className="absolute bottom-[15%] left-[25%] w-5 h-2 bg-accent opacity-10 rounded-lg"
         animate={{ y: [0, 8, 0], rotate: [0, 5, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
-      />
-      <motion.div 
-        className="absolute bottom-[10%] right-[25%] w-3 h-6 bg-primary opacity-10 rounded-lg"
-        animate={{ y: [0, 5, 0], rotate: [0, -3, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.7 }}
       />
     </section>
   )
