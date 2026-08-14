@@ -35,7 +35,7 @@ const About = () => {
   })
 
   return (
-    <section id="about" className="relative -mt-px overflow-hidden bg-gray-950 py-16 dark:bg-slate-950 sm:mt-0">
+    <section id="about" className="relative -mt-px overflow-hidden bg-dark-bg py-16 sm:mt-0">
       <div className="container relative z-10 mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ const About = () => {
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-gray-950/80 via-gray-950/10 to-transparent p-4">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-gray-950 shadow-lg backdrop-blur">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                    <span className="h-2 w-2 rounded-full bg-orange-primary" />
                     Open to opportunities
                   </div>
                 </div>
@@ -152,7 +152,7 @@ const About = () => {
                 className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-bold text-gray-950 shadow-lg shadow-black/20 transition-colors hover:bg-orange-primary hover:text-white"
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: "0 10px 25px -5px rgba(255, 107, 0, 0.3)"
+                  boxShadow: "0 10px 25px -5px rgba(255, 155, 81, 0.3)"
                 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >

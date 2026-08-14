@@ -99,7 +99,7 @@ const Experience = () => {
           {/* Animated Scroll Progress Line */}
           <div className="absolute left-[20px] lg:left-1/2 top-0 bottom-0 w-[2px] lg:-translate-x-1/2 overflow-hidden">
             <motion.div 
-              className="absolute top-0 left-0 w-full bg-gradient-to-b from-transparent via-orange-primary/80 to-orange-primary shadow-[0_0_15px_rgba(255,107,0,0.8)]" 
+              className="absolute top-0 left-0 w-full bg-gradient-to-b from-transparent via-orange-primary/80 to-orange-primary shadow-[0_0_15px_rgba(255,155,81,0.8)]"
               style={{ height: lineHeight }} 
             />
           </div>
@@ -130,7 +130,7 @@ const Experience = () => {
                       whileHover={{
                         y: -5,
                         boxShadow:
-                          "0 15px 25px -5px rgba(255, 107, 0, 0.1), 0 8px 10px -5px rgba(255, 107, 0, 0.04)",
+                          "0 15px 25px -5px rgba(255, 155, 81, 0.1), 0 8px 10px -5px rgba(255, 155, 81, 0.04)",
                       }}
                       className="bg-white dark:bg-dark-card rounded-2xl border border-orange-primary/10 hover:border-orange-primary/30 transition-all duration-300 shadow-md p-5 lg:p-6 relative group"
                     >

@@ -37,7 +37,7 @@ const Hero = () => {
   }, [])
 
   return (
-    <section id="home" className="relative bg-cream-lighter min-h-screen flex dark:bg-dark-bg items-center pt-20 overflow-hidden">
+    <section id="home" className="relative bg-cream-lighter min-h-screen flex dark:bg-dark-card items-center pt-20 overflow-hidden">
       <div className="container mx-auto px-4 z-10">
         <div className="flex flex-col md:flex-row items-center justify-between">
           {/* Left Text Content */}

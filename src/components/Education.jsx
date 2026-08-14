@@ -107,8 +107,8 @@ const Education = () => {
 
                     {/* Status badge (desktop) */}
                     <div className="hidden lg:flex items-center gap-3 mb-6">
-                      <span className="flex items-center gap-2 px-4 py-1.5 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-200 dark:border-emerald-800 rounded-full">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="flex items-center gap-2 rounded-full border border-orange-primary/30 bg-orange-primary/10 px-4 py-1.5 text-xs font-bold text-orange-primary">
+                        <span className="w-2 h-2 rounded-full bg-orange-primary animate-pulse" />
                         {edu.status}
                       </span>
                     </div>

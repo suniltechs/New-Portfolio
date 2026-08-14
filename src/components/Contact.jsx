@@ -174,7 +174,7 @@ const Contact = () => {
                 variants={itemVariants}
                 whileHover={{ 
                   scale: 1.02,
-                  boxShadow: "0 10px 20px -5px rgba(255, 107, 0, 0.3)"
+                  boxShadow: "0 10px 20px -5px rgba(255, 155, 81, 0.3)"
                 }}
                 whileTap={{ scale: 0.98 }}
               >

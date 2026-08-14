@@ -77,7 +77,7 @@ const HeroWave = () => {
 
   return (
     <div
-      className="relative h-24 overflow-hidden bg-cream-lighter text-gray-950 dark:bg-dark-bg dark:text-slate-950 sm:h-28 lg:h-32"
+      className="relative h-24 overflow-hidden bg-cream-lighter text-dark-bg dark:bg-dark-card sm:h-28 lg:h-32"
       aria-hidden="true"
     >
       <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full" />

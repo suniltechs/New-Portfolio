@@ -42,7 +42,7 @@ const SectionRibbon = () => {
                   <span
                     className={`h-2.5 w-2.5 shrink-0 rotate-45 ${
                       index % 2 === 0
-                        ? 'bg-orange-primary shadow-[0_0_16px_rgba(255,107,0,0.8)]'
+                        ? 'bg-orange-primary shadow-[0_0_16px_rgba(255,155,81,0.8)]'
                         : 'border-2 border-orange-primary bg-transparent'
                     }`}
                   />

@@ -108,7 +108,7 @@ const Navbar = ({ activeSection }) => {
       >
         <div className={`mx-auto flex w-[min(92rem,calc(100%-2rem))] items-center justify-between rounded-full border px-3 py-2 transition-all duration-500 sm:px-4 ${
           scrolled || isOpen
-            ? 'border-orange-primary/15 bg-white/85 shadow-[0_18px_55px_-28px_rgba(15,23,42,0.45)] backdrop-blur-2xl dark:border-white/10 dark:bg-dark-bg/85'
+            ? 'border-orange-primary/15 bg-white/85 shadow-[0_18px_55px_-28px_rgba(37,52,63,0.45)] backdrop-blur-2xl dark:border-white/10 dark:bg-dark-bg/85'
             : 'border-transparent bg-white/45 backdrop-blur-md dark:bg-dark-bg/35'
         }`}>
           <motion.a 

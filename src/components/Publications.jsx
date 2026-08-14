@@ -127,7 +127,7 @@ const Publications = () => {
                     href={publication.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute -top-6 right-6 w-12 h-12 bg-white dark:bg-[#1a1a1a] text-orange-primary rounded-full flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100 dark:border-gray-800 group-hover:bg-orange-primary group-hover:text-white transition-all duration-300 z-30 hover:scale-110 group-hover:shadow-orange-primary/40"
+                    className="absolute -top-6 right-6 w-12 h-12 bg-white dark:bg-dark-bg text-orange-primary rounded-full flex items-center justify-center shadow-[0_8px_30px_rgb(37,52,63,0.12)] border border-gray-100 dark:border-gray-800 group-hover:bg-orange-primary group-hover:text-white transition-all duration-300 z-30 hover:scale-110 group-hover:shadow-orange-primary/40"
                     aria-label="Read Publication"
                   >
                     <FaExternalLinkAlt className="w-5 h-5" />
