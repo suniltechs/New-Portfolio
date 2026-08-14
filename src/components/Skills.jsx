@@ -36,7 +36,10 @@ const Skills = () => {
   const row2 = skillsData.slice(half)
 
   return (
-    <section id="skills" className="relative py-16 overflow-hidden bg-cream-lighter dark:bg-dark-bg">
+    <section
+      id="skills"
+      className="relative z-10 -mt-8 overflow-hidden rounded-t-[1.25rem] border-t border-gray-300/80 bg-cream-lighter py-16 shadow-[0_-22px_48px_-34px_rgba(37,52,63,0.72)] dark:rounded-t-none dark:border-t-0 dark:bg-dark-bg dark:shadow-none sm:-mt-12 sm:rounded-t-[1.75rem] dark:sm:rounded-t-none"
+    >
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
 
         {/* Header */}

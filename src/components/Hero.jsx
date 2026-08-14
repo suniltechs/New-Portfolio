@@ -123,7 +123,7 @@ const Hero = () => {
               <motion.img
                 src="/assets/images/hero.jpeg"
                 alt="Sunil Sowrirajan"
-                className="w-full max-w-md rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] shadow-sm"
+                className="w-full max-w-sm rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] shadow-sm 2xl:max-w-md"
                 variants={floatingVariants}
                 animate="float"
               />
