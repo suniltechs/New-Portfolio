@@ -14,7 +14,7 @@ const SectionRibbon = () => {
 
   return (
     <section
-      className="relative isolate overflow-hidden bg-transparent"
+      className="relative isolate overflow-hidden bg-transparent py-3 sm:py-4"
       aria-label="Sunil's development focus"
     >
       <p className="sr-only">
@@ -22,7 +22,7 @@ const SectionRibbon = () => {
         Node.js, and MongoDB, and is open to new opportunities.
       </p>
 
-      <div className="relative overflow-hidden border-y-2 border-orange-primary bg-transparent py-4 sm:py-5">
+      <div className="relative -mx-4 -rotate-1 overflow-hidden border-y-2 border-orange-primary bg-transparent py-4 sm:py-5">
         <motion.div
           aria-hidden="true"
           className="flex w-max items-center"
@@ -42,7 +42,7 @@ const SectionRibbon = () => {
                   <span
                     className={`h-2.5 w-2.5 shrink-0 rotate-45 ${
                       index % 2 === 0
-                        ? 'bg-orange-primary shadow-[0_0_16px_rgba(255,107,0,0.8)]'
+                        ? 'bg-orange-primary shadow-[0_0_16px_rgba(255,155,81,0.8)]'
                         : 'border-2 border-orange-primary bg-transparent'
                     }`}
                   />

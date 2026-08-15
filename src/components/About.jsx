@@ -35,8 +35,7 @@ const About = () => {
   })
 
   return (
-    <section id="about" className="relative overflow-hidden bg-cream-lighter py-16 dark:bg-dark-bg">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-primary/30 to-transparent" />
+    <section id="about" className="relative -mt-px overflow-hidden bg-cream-lighter pb-16 pt-12 dark:bg-dark-bg sm:mt-0 sm:pb-20">
       <div className="container relative z-10 mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +43,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="mx-auto mb-10 max-w-3xl text-center"
         >
-          <h2 className="relative inline-block text-3xl font-bold text-gray-950 dark:text-white md:text-4xl">
+          <h2 className="relative inline-block text-3xl font-bold text-dark-bg dark:text-white md:text-4xl">
             <span className="text-orange-primary">About</span> Me
             <motion.span 
               className="absolute bottom-[-12px] left-1/2 h-1 w-20 -translate-x-1/2 rounded-full bg-orange-primary"
@@ -66,7 +65,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <motion.div
-              className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-2.5 shadow-xl shadow-gray-950/10 dark:border-white/10 dark:bg-dark-card"
+              className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-2.5 shadow-xl shadow-dark-bg/10 dark:border-white/10 dark:bg-dark-card dark:shadow-black/20"
               whileHover={{ y: -6 }}
               transition={{ type: 'spring', stiffness: 260, damping: 20 }}
             >
@@ -78,7 +77,7 @@ const About = () => {
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-gray-950/80 via-gray-950/10 to-transparent p-4">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-gray-950 shadow-lg backdrop-blur">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                    <span className="h-2 w-2 rounded-full bg-orange-primary" />
                     Open to opportunities
                   </div>
                 </div>
@@ -92,7 +91,7 @@ const About = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <motion.h3 variants={itemVariants} className="text-2xl font-black tracking-tight text-gray-950 dark:text-white md:text-3xl">
+            <motion.h3 variants={itemVariants} className="text-2xl font-black tracking-tight text-dark-bg dark:text-white md:text-3xl">
               I'm Sunil Sowrirajan
             </motion.h3>
             
@@ -106,7 +105,7 @@ const About = () => {
 
             <motion.p 
               variants={itemVariants}
-              className="mt-5 max-w-2xl text-base leading-7 text-gray-700 dark:text-gray-300"
+              className="mt-5 max-w-2xl text-base leading-7 text-gray-600 dark:text-gray-300"
             >
               I'm a Full Stack Developer based in Tamil Nadu, India, a recent graduate in B.Tech in Artificial
               Intelligence and Data Science. I build responsive, interactive web applications using the MERN stack and
@@ -121,7 +120,7 @@ const About = () => {
               <motion.a
                 variants={itemVariants}
                 href="mailto:sunilsowrirajan@gmail.com"
-                className="flex items-center gap-2.5 rounded-2xl border border-gray-200 bg-white p-3 text-xs font-bold text-gray-800 shadow-sm transition-all hover:-translate-y-1 hover:border-orange-primary/40 hover:shadow-lg hover:shadow-orange-primary/10 dark:border-white/10 dark:bg-dark-card dark:text-dark-text"
+                className="flex items-center gap-2.5 rounded-2xl border border-gray-200 bg-white p-3 text-xs font-bold text-dark-bg shadow-sm transition-all hover:-translate-y-1 hover:border-orange-primary/40 hover:shadow-lg hover:shadow-orange-primary/10 dark:border-white/10 dark:bg-dark-card dark:text-dark-text"
               >
                 <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-orange-primary/10 text-orange-primary">
                   <Mail className="h-4 w-4" />
@@ -131,7 +130,7 @@ const About = () => {
 
               <motion.div
                 variants={itemVariants}
-                className="flex items-center gap-2.5 rounded-2xl border border-gray-200 bg-white p-3 text-xs font-bold text-gray-800 shadow-sm dark:border-white/10 dark:bg-dark-card dark:text-dark-text"
+                className="flex items-center gap-2.5 rounded-2xl border border-gray-200 bg-white p-3 text-xs font-bold text-dark-bg shadow-sm dark:border-white/10 dark:bg-dark-card dark:text-dark-text"
               >
                 <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-orange-primary/10 text-orange-primary">
                   <MapPin className="h-4 w-4" />
@@ -150,10 +149,10 @@ const About = () => {
                 href="https://drive.google.com/file/d/1MyD49ckJXkU9exxZtKDHIfjNM0oCyRzJ/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full bg-gray-950 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-gray-950/10 transition-colors hover:bg-orange-primary dark:bg-white dark:text-gray-950 dark:hover:bg-orange-primary dark:hover:text-white"
+                className="inline-flex items-center rounded-full bg-dark-bg px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-dark-bg/20 transition-colors hover:bg-orange-primary hover:text-white dark:bg-white dark:text-gray-950 dark:shadow-black/20"
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: "0 10px 25px -5px rgba(255, 107, 0, 0.3)"
+                  boxShadow: "0 10px 25px -5px rgba(255, 155, 81, 0.3)"
                 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >

@@ -200,7 +200,7 @@ const Projects = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 })
 
   return (
-    <section id="work" className="py-16 dark:bg-dark-bg bg-cream-lighter">
+    <section id="work" className="bg-cream-lighter py-12 dark:bg-dark-bg">
       <div className="container mx-auto px-4">
 
         {/* Header */}

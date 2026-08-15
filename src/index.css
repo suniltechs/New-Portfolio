@@ -4,8 +4,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #fff5ef;
-  color: #0f172a;
+  background-color: #EAEFEF;
+  color: #25343F;
 }
 
 /* Dark mode styles */
@@ -44,15 +44,30 @@ body.dark {
   @apply transition-colors duration-200;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Keep page scrolling available without showing browser scrollbar chrome */
+html,
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-gray-800;
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-orange-primary dark:bg-dark-primary rounded-full;
+.hero-background {
+  background-image: url('/assets/images/h4.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
+@media (max-width: 767px) {
+  .hero-background {
+    background-position: 64% center;
+  }
+}
+

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import HeroWave from './components/HeroWave'
 import About from './components/About'
 import SectionRibbon from './components/SectionRibbon'
 import Skills from './components/Skills'
@@ -41,6 +42,7 @@ function App() {
     <div className="min-h-screen bg-cream-lighter dark:bg-dark-bg">
       <Navbar activeSection={activeSection} />
       <Hero />
+      <HeroWave />
       <About />
       <Skills />
       <Education />

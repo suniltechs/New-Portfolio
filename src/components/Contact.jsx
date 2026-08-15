@@ -70,7 +70,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-cream-lighter dark:bg-dark-bg ">
+    <section id="contact" className="bg-cream-lighter py-14 dark:bg-dark-bg">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -174,7 +174,7 @@ const Contact = () => {
                 variants={itemVariants}
                 whileHover={{ 
                   scale: 1.02,
-                  boxShadow: "0 10px 20px -5px rgba(255, 107, 0, 0.3)"
+                  boxShadow: "0 10px 20px -5px rgba(255, 155, 81, 0.3)"
                 }}
                 whileTap={{ scale: 0.98 }}
               >
