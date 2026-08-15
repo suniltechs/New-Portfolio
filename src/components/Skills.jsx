@@ -38,7 +38,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative z-10 overflow-hidden bg-cream-lighter py-16 dark:bg-dark-bg"
+      className="relative z-10 overflow-hidden bg-cream-lighter py-12 dark:bg-dark-bg"
     >
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
 

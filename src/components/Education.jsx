@@ -19,7 +19,7 @@ const Education = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
-    <section id="education" className="py-16 bg-cream-lighter dark:bg-dark-bg overflow-hidden">
+    <section id="education" className="bg-cream-lighter py-12 dark:bg-dark-bg overflow-hidden">
       <div className="container mx-auto px-4">
 
         {/* Header */}

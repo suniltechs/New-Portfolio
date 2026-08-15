@@ -35,7 +35,7 @@ const About = () => {
   })
 
   return (
-    <section id="about" className="relative -mt-px overflow-hidden bg-cream-lighter pb-20 pt-16 dark:bg-dark-bg sm:mt-0 sm:pb-24">
+    <section id="about" className="relative -mt-px overflow-hidden bg-cream-lighter pb-16 pt-12 dark:bg-dark-bg sm:mt-0 sm:pb-20">
       <div className="container relative z-10 mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -66,7 +66,7 @@ const Experience = () => {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="experience" className="py-12 lg:py-16 dark:bg-dark-bg bg-cream-lighter overflow-hidden">
+    <section id="experience" className="overflow-hidden bg-cream-lighter py-10 dark:bg-dark-bg lg:py-12">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div
