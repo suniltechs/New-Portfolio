@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { FaArrowCircleDown, FaLinkedin, FaGithub, FaDev } from 'react-icons/fa'
+import { FaArrowCircleDown, FaLinkedin, FaGithub, FaDev, FaCode, FaLaptopCode } from 'react-icons/fa'
 import Typed from 'typed.js'
 import { motion } from 'framer-motion'
 
@@ -114,19 +114,53 @@ const Hero = () => {
           {/* Right Image */}
           <div className="md:w-1/2 flex justify-center relative">
             <motion.div
-              className="relative"
+              className="relative w-full max-w-sm 2xl:max-w-md"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="absolute -inset-3 mb-10 mr-6 dark:bg-white bg-brown opacity-50 rounded-full blur-xl"></div>
-              <motion.img
-                src="/assets/images/hero.jpeg"
-                alt="Sunil Sowrirajan"
-                className="w-full max-w-sm rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] shadow-sm 2xl:max-w-md"
+              <div className="hero-portrait-blob-back absolute -inset-1 translate-x-3 -translate-y-2 rotate-[3deg] scale-[1.03] bg-orange-primary shadow-[0_24px_55px_rgba(255,155,81,0.22)]" />
+              <div className="hero-portrait-accent absolute -left-8 top-[12%] h-36 w-36 rotate-6 bg-dark-bg dark:bg-secondary/30" />
+
+              <motion.div
+                className="hero-portrait-blob relative z-10 overflow-hidden border-4 border-cream-lighter shadow-[0_24px_60px_rgba(37,52,63,0.22)] dark:border-dark-card"
                 variants={floatingVariants}
                 animate="float"
-              />
+              >
+                <img
+                  src="/assets/images/hero.jpeg"
+                  alt="Sunil Sowrirajan"
+                  className="aspect-[1/1.04] w-full object-cover object-center"
+                />
+              </motion.div>
+
+              <motion.div
+                className="hero-info-card absolute -left-10 top-[18%] z-20 hidden items-center gap-3 px-4 py-3 lg:flex"
+                animate={{ y: [0, -7, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-orange-primary text-white">
+                  <FaCode />
+                </span>
+                <span>
+                  <strong className="block text-sm font-black text-gray-900 dark:text-white">7+ Projects</strong>
+                  <span className="block text-[11px] font-medium text-gray-500 dark:text-gray-400">Built & shipped</span>
+                </span>
+              </motion.div>
+
+              <motion.div
+                className="hero-info-card absolute -right-10 bottom-[8%] z-20 hidden items-center gap-3 px-4 py-3 lg:flex"
+                animate={{ y: [0, 7, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.7 }}
+              >
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-orange-primary text-white">
+                  <FaLaptopCode />
+                </span>
+                <span>
+                  <strong className="block text-sm font-black text-gray-900 dark:text-white">MERN Developer</strong>
+                  <span className="block text-[11px] font-medium text-gray-500 dark:text-gray-400">Full-stack focus</span>
+                </span>
+              </motion.div>
             </motion.div>
           </div>
         </div>

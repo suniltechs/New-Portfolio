@@ -58,3 +58,35 @@ body::-webkit-scrollbar {
   height: 0;
 }
 
+/* Layered blob composition for the existing hero photograph */
+.hero-portrait-blob {
+  border-radius: 46% 54% 53% 47% / 40% 44% 56% 60%;
+  transition: border-radius 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-portrait-blob:hover {
+  border-radius: 52% 48% 46% 54% / 46% 38% 62% 54%;
+}
+
+.hero-portrait-blob-back {
+  border-radius: 56% 44% 47% 53% / 52% 42% 58% 48%;
+}
+
+.hero-portrait-accent {
+  border-radius: 48% 52% 58% 42% / 55% 44% 56% 45%;
+}
+
+.hero-info-card {
+  min-width: 154px;
+  border: 1px solid rgba(191, 201, 209, 0.55);
+  border-radius: 1.15rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 40px rgba(37, 52, 63, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+.dark .hero-info-card {
+  border-color: rgba(191, 201, 209, 0.18);
+  background: rgba(37, 52, 63, 0.9);
+}
+
