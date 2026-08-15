@@ -41,6 +41,7 @@ const Navbar = ({ activeSection }) => {
   ]
 
   const isHeroSection = activeSection === 'home'
+  const isTransparentHeader = isHeroSection && !isOpen
 
   const scrollToSection = (sectionId) => {
     setIsOpen(false)
@@ -94,7 +95,7 @@ const Navbar = ({ activeSection }) => {
     <>
       <header
         className={`font-nav fixed left-0 top-0 z-[60] w-full border-b px-5 py-4 transition-all duration-300 sm:px-8 sm:py-5 ${
-          isHeroSection && !isOpen
+          isTransparentHeader
             ? 'border-transparent bg-transparent'
             : 'border-gray-200/80 bg-cream-lighter/95 shadow-[0_10px_30px_-24px_rgba(37,52,63,0.55)] backdrop-blur-xl dark:border-white/10 dark:bg-dark-bg/95'
         }`}
@@ -103,7 +104,7 @@ const Navbar = ({ activeSection }) => {
           <motion.a 
             href="#home" 
             className={`group shrink-0 text-xl font-bold tracking-[-0.045em] transition-all duration-300 hover:-translate-y-0.5 sm:text-2xl ${
-              isHeroSection
+              isTransparentHeader
                 ? 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]'
                 : 'text-dark-bg hover:text-orange-primary dark:text-white'
             }`}
@@ -136,7 +137,7 @@ const Navbar = ({ activeSection }) => {
                     className={`relative block py-2 text-[13px] font-medium tracking-[0.025em] transition-colors duration-300 xl:text-sm ${
                       activeSection === link.id 
                         ? 'text-orange-primary drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]'
-                        : isHeroSection
+                        : isTransparentHeader
                           ? 'text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)] hover:text-orange-primary'
                           : 'text-dark-bg hover:text-orange-primary dark:text-white/80 dark:hover:text-orange-primary'
                     }`}
@@ -163,7 +164,7 @@ const Navbar = ({ activeSection }) => {
                 scrollToSection('contact')
               }}
               className={`group relative hidden items-center gap-2 py-2 text-[13px] font-semibold tracking-[0.035em] transition-all duration-300 hover:-translate-y-0.5 md:inline-flex xl:text-sm ${
-                isHeroSection
+                isTransparentHeader
                   ? 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)] hover:text-orange-primary'
                   : 'text-dark-bg hover:text-orange-primary dark:text-white dark:hover:text-orange-primary'
               }`}
@@ -199,7 +200,7 @@ const Navbar = ({ activeSection }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 z-[50] bg-gray-950/30 backdrop-blur-sm dark:bg-black/50 lg:hidden"
+              className="fixed inset-0 z-[50] bg-dark-bg/45 backdrop-blur-sm dark:bg-black/55 lg:hidden"
             />
             
             {/* Menu Content */}
@@ -209,7 +210,7 @@ const Navbar = ({ activeSection }) => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed left-4 right-4 top-24 z-[55] max-h-[calc(100dvh-7rem)] overflow-y-auto rounded-[2rem] border border-orange-primary/10 bg-white/95 p-4 shadow-2xl shadow-gray-950/20 backdrop-blur-2xl dark:border-white/10 dark:bg-dark-card/95 lg:hidden"
+              className="fixed left-4 right-4 top-24 z-[55] max-h-[calc(100dvh-7rem)] overflow-y-auto rounded-[2rem] border border-gray-300/70 bg-cream-lighter/95 p-4 shadow-2xl shadow-dark-bg/25 backdrop-blur-2xl dark:border-white/10 dark:bg-dark-card/95 lg:hidden"
               aria-label="Mobile navigation"
             >
               <ul className="grid gap-2">
@@ -224,7 +225,7 @@ const Navbar = ({ activeSection }) => {
                       className={`group flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left text-base font-bold transition-all ${
                         activeSection === link.id 
                           ? 'bg-orange-primary text-white shadow-lg shadow-orange-primary/20' 
-                          : 'text-gray-700 hover:bg-gray-100 dark:text-dark-text dark:hover:bg-white/5'
+                          : 'text-dark-bg hover:bg-white dark:text-dark-text dark:hover:bg-white/5'
                       }`}
                     >
                       <span>{link.label}</span>
