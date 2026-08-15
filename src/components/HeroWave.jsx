@@ -10,14 +10,16 @@ const HeroWave = () => {
     if (!canvas) return undefined
 
     const context = canvas.getContext('2d')
+    const getWaveColor = () =>
+      document.documentElement.classList.contains('dark') ? '#25343F' : '#EAEFEF'
     let animationFrame
-    let fillColor = getComputedStyle(canvas).color
+    let fillColor = getWaveColor()
 
     const drawWave = (time = 0) => {
       const width = canvas.clientWidth
       const height = canvas.clientHeight
       const amplitude = Math.min(height * 0.3, 54)
-      const centerY = height * 0.4
+      const centerY = height * 0.62
       const wavelength = Math.max(width * 0.95, 680)
       const phase = reduceMotion ? 0 : time * 0.0005
 
@@ -56,7 +58,7 @@ const HeroWave = () => {
 
     const resizeObserver = new ResizeObserver(resizeCanvas)
     const themeObserver = new MutationObserver(() => {
-      fillColor = getComputedStyle(canvas).color
+      fillColor = getWaveColor()
       if (reduceMotion) drawWave()
     })
 
@@ -77,7 +79,7 @@ const HeroWave = () => {
 
   return (
     <div
-      className="relative h-24 overflow-hidden bg-cream-lighter text-dark-bg dark:bg-dark-card sm:h-28 lg:h-32"
+      className="relative z-10 -mt-20 h-20 overflow-hidden bg-transparent sm:-mt-24 sm:h-24 lg:-mt-28 lg:h-28"
       aria-hidden="true"
     >
       <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full" />

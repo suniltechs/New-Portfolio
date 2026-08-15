@@ -1,19 +1,10 @@
 import { useState, useEffect } from 'react'
-import { FaArrowRight, FaBars, FaCode, FaTimes } from 'react-icons/fa'
+import { FaArrowRight, FaBars, FaTimes } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
 
 const Navbar = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
@@ -49,6 +40,8 @@ const Navbar = ({ activeSection }) => {
     { id: 'experience', label: 'Experience' },
   ]
 
+  const isHeroSection = activeSection === 'home'
+
   const scrollToSection = (sectionId) => {
     setIsOpen(false)
     
@@ -56,7 +49,7 @@ const Navbar = ({ activeSection }) => {
     setTimeout(() => {
       const element = document.getElementById(sectionId)
       if (element) {
-        const offset = 80 // Height of the fixed navbar
+        const offset = 64 // Height of the compact fixed navbar
         const bodyRect = document.body.getBoundingClientRect().top
         const elementRect = element.getBoundingClientRect().top
         const elementPosition = elementRect - bodyRect
@@ -99,21 +92,21 @@ const Navbar = ({ activeSection }) => {
 
   return (
     <>
-      <header 
-        className={`fixed left-0 top-0 w-full z-[60] transition-all duration-500 ${
-          scrolled || isOpen
-            ? 'py-3' 
-            : 'py-5'
+      <header
+        className={`font-nav fixed left-0 top-0 z-[60] w-full border-b px-5 py-4 transition-all duration-300 sm:px-8 sm:py-5 ${
+          isHeroSection && !isOpen
+            ? 'border-transparent bg-transparent'
+            : 'border-gray-200/80 bg-cream-lighter/95 shadow-[0_10px_30px_-24px_rgba(37,52,63,0.55)] backdrop-blur-xl dark:border-white/10 dark:bg-dark-bg/95'
         }`}
       >
-        <div className={`mx-auto flex w-[min(92rem,calc(100%-2rem))] items-center justify-between rounded-full border px-3 py-2 transition-all duration-500 sm:px-4 ${
-          scrolled || isOpen
-            ? 'border-orange-primary/15 bg-white/85 shadow-[0_18px_55px_-28px_rgba(37,52,63,0.45)] backdrop-blur-2xl dark:border-white/10 dark:bg-dark-bg/85'
-            : 'border-transparent bg-white/45 backdrop-blur-md dark:bg-dark-bg/35'
-        }`}>
+        <div className="mx-auto flex w-full max-w-[92rem] items-center justify-between gap-5">
           <motion.a 
             href="#home" 
-            className="group flex min-w-0 items-center gap-3 rounded-full pr-2 text-orange-primary transition-transform hover:scale-[1.02]"
+            className={`group shrink-0 text-xl font-bold tracking-[-0.045em] transition-all duration-300 hover:-translate-y-0.5 sm:text-2xl ${
+              isHeroSection
+                ? 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]'
+                : 'text-dark-bg hover:text-orange-primary dark:text-white'
+            }`}
             onClick={(e) => {
               e.preventDefault()
               scrollToSection('home')
@@ -121,17 +114,12 @@ const Navbar = ({ activeSection }) => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-orange-primary text-white shadow-lg shadow-orange-primary/25 transition-transform group-hover:rotate-6">
-              <FaCode className="text-lg" />
-            </div>
-            <div className="leading-none">
-              <span className="block text-lg font-black tracking-tight text-gray-950 dark:text-white sm:text-xl">Sunil</span>
-            </div>
+            <span className="text-orange-primary">&lt;</span>Sunil<span className="inline-block origin-bottom text-orange-primary transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110"> /&gt;</span>
           </motion.a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:block" aria-label="Primary navigation">
-            <ul className="flex items-center rounded-full border border-gray-200/80 bg-white/70 p-1 shadow-inner shadow-white/60 dark:border-white/10 dark:bg-white/5 dark:shadow-none">
+            <ul className="flex items-center gap-5 xl:gap-8">
               {navLinks.map((link, index) => (
                 <motion.li 
                   key={link.id}
@@ -145,16 +133,18 @@ const Navbar = ({ activeSection }) => {
                       e.preventDefault()
                       scrollToSection(link.id)
                     }}
-                    className={`relative isolate block overflow-hidden rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-300 ${
+                    className={`relative block py-2 text-[13px] font-medium tracking-[0.025em] transition-colors duration-300 xl:text-sm ${
                       activeSection === link.id 
-                        ? 'text-white' 
-                        : 'text-gray-600 hover:text-gray-950 dark:text-gray-300 dark:hover:text-white'
+                        ? 'text-orange-primary drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]'
+                        : isHeroSection
+                          ? 'text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)] hover:text-orange-primary'
+                          : 'text-dark-bg hover:text-orange-primary dark:text-white/80 dark:hover:text-orange-primary'
                     }`}
                   >
                     {activeSection === link.id && (
                       <motion.span 
                         layoutId="activeDesktopNav"
-                        className="absolute inset-0 -z-10 rounded-full bg-orange-primary shadow-lg shadow-orange-primary/20"
+                        className="absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-orange-primary shadow-[0_2px_8px_rgba(255,155,81,0.45)]"
                         transition={{ type: 'spring', stiffness: 420, damping: 34 }}
                       />
                     )}
@@ -172,18 +162,23 @@ const Navbar = ({ activeSection }) => {
                 e.preventDefault()
                 scrollToSection('contact')
               }}
-              className="hidden items-center gap-2 rounded-full bg-gray-950 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-gray-950/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-primary hover:shadow-orange-primary/25 dark:bg-white dark:text-gray-950 dark:hover:bg-orange-primary dark:hover:text-white md:inline-flex"
+              className={`group relative hidden items-center gap-2 py-2 text-[13px] font-semibold tracking-[0.035em] transition-all duration-300 hover:-translate-y-0.5 md:inline-flex xl:text-sm ${
+                isHeroSection
+                  ? 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)] hover:text-orange-primary'
+                  : 'text-dark-bg hover:text-orange-primary dark:text-white dark:hover:text-orange-primary'
+              }`}
             >
               <span>Let's Talk</span>
-              <FaArrowRight className="text-xs" />
+              <FaArrowRight className="text-[11px] transition-transform duration-300 group-hover:translate-x-1" />
+              <span className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-orange-primary transition-transform duration-300 group-hover:scale-x-100" />
             </a>
-            <div className="grid h-11 w-11 place-items-center rounded-full border border-gray-200/80 bg-white/70 dark:border-white/10 dark:bg-white/5">
+            <div className="grid h-10 w-10 place-items-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] transition-transform duration-300 hover:rotate-6 hover:scale-110">
               <ThemeToggle />
             </div>
             
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="grid h-11 w-11 place-items-center rounded-full bg-orange-primary text-white shadow-lg shadow-orange-primary/25 transition-transform active:scale-95 lg:hidden"
+              className="grid h-11 w-11 place-items-center rounded-full bg-orange-primary text-white shadow-lg shadow-orange-primary/25 transition-transform hover:scale-105 active:scale-95 lg:hidden"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"

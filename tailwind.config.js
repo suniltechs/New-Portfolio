@@ -57,6 +57,7 @@ export default {
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
+        nav: ['Space Grotesk', 'sans-serif'],
       },
       backgroundColor: {
         'main': '#EAEFEF',

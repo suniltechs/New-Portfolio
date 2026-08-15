@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { FaArrowCircleDown, FaLinkedin, FaGithub, FaDev, FaCode, FaLaptopCode } from 'react-icons/fa'
+import { FaArrowCircleDown, FaLinkedin, FaGithub, FaDev } from 'react-icons/fa'
 import Typed from 'typed.js'
 import { motion } from 'framer-motion'
 
@@ -9,264 +9,108 @@ const Hero = () => {
 
   const floatingVariants = {
     float: {
-      y: [0, -15, 0],
+      y: [0, -7, 0],
       transition: {
         duration: 4,
         repeat: Infinity,
-        ease: 'easeInOut'
-      }
-    }
+        ease: 'easeInOut',
+      },
+    },
   }
 
   useEffect(() => {
     if (typedRef.current) {
       typedInstance.current = new Typed(typedRef.current, {
-        strings: ['Full Stack Development','MERN Stack Development', 'Web Designing'],
+        strings: ['Full Stack Development', 'MERN Stack Development', 'Web Designing'],
         typeSpeed: 50,
         backSpeed: 25,
         backDelay: 500,
-        loop: true
+        loop: true,
       })
     }
 
     return () => {
-      if (typedInstance.current) {
-        typedInstance.current.destroy()
-      }
+      typedInstance.current?.destroy()
     }
   }, [])
 
   return (
-    <section id="home" className="relative bg-cream-lighter min-h-screen flex dark:bg-dark-card items-center pt-20 overflow-hidden">
-      <div className="container mx-auto px-4 z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          {/* Left Text Content */}
-          <div className="md:w-1/2 mb-10 md:mb-0">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+    <section
+      id="home"
+      className="hero-background relative flex min-h-screen items-center overflow-hidden pt-24 text-white"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-dark-bg/95 via-dark-bg/70 to-dark-bg/15" />
+
+      <div className="container relative z-10 mx-auto px-5 py-16 sm:px-8 md:py-20 lg:px-12">
+        <motion.div
+          className="max-w-2xl"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="mb-4 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+            <span className="block md:whitespace-nowrap">Hi There, I&apos;m Sunil</span>
+            <span className="block text-primary">Sowrirajan</span>
+          </h1>
+
+          <p className="mb-6 text-lg font-medium text-white/90 sm:text-xl">
+            I&apos;m into{' '}
+            <span ref={typedRef} className="font-semibold text-primary" />
+          </p>
+
+          <motion.div
+            className="mt-8 flex space-x-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            <motion.a
+              href="https://www.linkedin.com/in/sunil-sowrirajan-40548826b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-2xl text-white/90 transition-colors duration-300 hover:text-primary"
+              variants={floatingVariants}
+              animate="float"
             >
-              <h1 className="text-4xl dark:text-dark-text md:text-5xl font-bold mb-4">
-                <span className="block md:whitespace-nowrap">Hi There, I'm Sunil</span>
-                <span className="block text-primary">Sowrirajan</span>
-              </h1>
-              <p className="text-xl dark:text-dark-text mb-6">
-                I'm into{' '}
-                <span ref={typedRef} className="text-primary font-medium"></span>
-              </p>
-            </motion.div>
-
-            {/* Social Icons */}
-            <motion.div 
-              className="flex space-x-6 mt-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
+              <FaLinkedin />
+            </motion.a>
+            <motion.a
+              href="https://github.com/suniltechs"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-2xl text-white/90 transition-colors duration-300 hover:text-primary"
+              variants={floatingVariants}
+              animate="float"
             >
-              <motion.a
-                href="https://www.linkedin.com/in/sunil-sowrirajan-40548826b/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="text-2xl text-gray-700 dark:text-dark-text hover:text-primary transition-colors duration-300"
-                variants={floatingVariants}
-                animate="float"
-              >
-                <FaLinkedin />
-              </motion.a>
-              <motion.a
-                href="https://github.com/suniltechs"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="text-2xl text-gray-700 dark:text-dark-text hover:text-primary transition-colors duration-300"
-                variants={floatingVariants}
-                animate="float"
-              >
-                <FaGithub />
-              </motion.a>
-              <motion.a
-                href="https://dev.to/sunil_s"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Dev"
-                className="text-2xl text-gray-700 dark:text-dark-text hover:text-primary transition-colors duration-300"
-                variants={floatingVariants}
-                animate="float"
-              >
-                <FaDev />
-              </motion.a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
+              <FaGithub />
+            </motion.a>
+            <motion.a
+              href="https://dev.to/sunil_s"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Dev"
+              className="text-2xl text-white/90 transition-colors duration-300 hover:text-primary"
+              variants={floatingVariants}
+              animate="float"
             >
-              <a href="#about" className="btn mt-8 inline-flex items-center">
-                <span>About Me</span>
-                <FaArrowCircleDown className="ml-2" />
-              </a>
-            </motion.div>
-          </div>
+              <FaDev />
+            </motion.a>
+          </motion.div>
 
-          {/* Right Image */}
-          <div className="md:w-1/2 flex justify-center relative">
-            <motion.div
-              className="relative w-full max-w-sm 2xl:max-w-md"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="hero-portrait-blob-back absolute -inset-1 translate-x-3 -translate-y-2 rotate-[3deg] scale-[1.03] bg-orange-primary shadow-[0_24px_55px_rgba(255,155,81,0.22)]" />
-              <div className="hero-portrait-accent absolute -left-8 top-[12%] h-36 w-36 rotate-6 bg-dark-bg dark:bg-secondary/30" />
-
-              <motion.div
-                className="hero-portrait-blob relative z-10 overflow-hidden border-4 border-cream-lighter shadow-[0_24px_60px_rgba(37,52,63,0.22)] dark:border-dark-card"
-                variants={floatingVariants}
-                animate="float"
-              >
-                <img
-                  src="/assets/images/hero.jpeg"
-                  alt="Sunil Sowrirajan"
-                  className="aspect-[1/1.04] w-full object-cover object-center"
-                />
-              </motion.div>
-
-              <motion.div
-                className="hero-info-card absolute -left-10 top-[18%] z-20 hidden items-center gap-3 px-4 py-3 lg:flex"
-                animate={{ y: [0, -7, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-orange-primary text-white">
-                  <FaCode />
-                </span>
-                <span>
-                  <strong className="block text-sm font-black text-gray-900 dark:text-white">7+ Projects</strong>
-                  <span className="block text-[11px] font-medium text-gray-500 dark:text-gray-400">Built & shipped</span>
-                </span>
-              </motion.div>
-
-              <motion.div
-                className="hero-info-card absolute -right-10 bottom-[8%] z-20 hidden items-center gap-3 px-4 py-3 lg:flex"
-                animate={{ y: [0, 7, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.7 }}
-              >
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-orange-primary text-white">
-                  <FaLaptopCode />
-                </span>
-                <span>
-                  <strong className="block text-sm font-black text-gray-900 dark:text-white">MERN Developer</strong>
-                  <span className="block text-[11px] font-medium text-gray-500 dark:text-gray-400">Full-stack focus</span>
-                </span>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            <a href="#about" className="btn mt-8 inline-flex items-center">
+              <span>About Me</span>
+              <FaArrowCircleDown className="ml-2" />
+            </a>
+          </motion.div>
+        </motion.div>
       </div>
-
-      {/* Floating Decorative Shapes */}
-      {/* Top Left Cluster */}
-      <motion.div 
-        className="absolute top-[15%] left-[5%] w-8 h-8 rounded-full bg-primary opacity-20"
-        animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div 
-        className="absolute top-[25%] left-[15%] w-6 h-6 rounded-full bg-secondary opacity-15"
-        animate={{ y: [0, -15, 0], x: [0, -5, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-      />
-      <motion.div 
-        className="absolute top-[20%] left-[10%] w-10 h-4 bg-accent opacity-15 rounded-lg"
-        animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-      />
-      
-      {/* Top Right Cluster */}
-      <motion.div 
-        className="absolute top-[10%] right-[10%] w-10 h-10 rounded-full bg-primary opacity-15"
-        animate={{ y: [0, -25, 0], x: [0, 15, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-      />
-      <motion.div 
-        className="absolute top-[15%] right-[20%] w-5 h-5 rounded-full bg-secondary opacity-10"
-        animate={{ y: [0, -10, 0], x: [0, -8, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.7 }}
-      />
-      <motion.div 
-        className="absolute top-[12%] right-[15%] w-8 h-3 bg-accent opacity-10 rounded-lg"
-        animate={{ y: [0, -15, 0], rotate: [0, -3, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
-      />
-      
-      {/* Bottom Left Cluster */}
-      <motion.div 
-        className="absolute bottom-[20%] left-[10%] w-7 h-7 rounded-full bg-primary opacity-15"
-        animate={{ y: [0, 15, 0], x: [0, -10, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
-      />
-      <motion.div 
-        className="absolute bottom-[30%] left-[5%] w-9 h-9 rounded-full bg-secondary opacity-20"
-        animate={{ y: [0, 20, 0], x: [0, 12, 0] }}
-        transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-      />
-      <motion.div 
-        className="absolute bottom-[25%] left-[8%] w-12 h-2 bg-accent opacity-10 rounded-lg"
-        animate={{ y: [0, 10, 0], rotate: [0, 8, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-      />
-      
-      {/* Bottom Right Cluster */}
-      <motion.div 
-        className="absolute bottom-[30%] right-[10%] w-12 h-12 rounded-full bg-secondary opacity-20"
-        animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-      />
-      <motion.div 
-        className="absolute bottom-[25%] right-[15%] w-6 h-6 bg-accent opacity-15 rounded-lg"
-        animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.9 }}
-      />
-      
-      {/* Center Floating Elements */}
-      <motion.div 
-        className="absolute top-[45%] left-[20%] w-5 h-5 rounded-full bg-primary opacity-15"
-        animate={{ y: [0, -15, 0], x: [0, 8, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
-      />
-      <motion.div 
-        className="absolute top-[55%] right-[20%] w-6 h-6 rounded-full bg-secondary opacity-15"
-        animate={{ y: [0, 15, 0], x: [0, -8, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
-      />
-      <motion.div 
-        className="absolute top-[50%] left-[30%] w-7 h-3 bg-accent opacity-10 rounded-lg"
-        animate={{ y: [0, -10, 0], rotate: [0, 10, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.7 }}
-      />
-      <motion.div 
-        className="absolute top-[60%] right-[30%] w-4 h-8 bg-accent opacity-15 rounded-lg"
-        animate={{ y: [0, 12, 0], rotate: [0, -8, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-      />
-      
-      <motion.div 
-        className="absolute top-[35%] left-[30%] w-3 h-3 bg-primary opacity-10 rounded-full"
-        animate={{ y: [0, -8, 0], x: [0, 5, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
-      />
-      <motion.div 
-        className="absolute top-[40%] right-[35%] w-4 h-4 bg-secondary opacity-10 rounded-full"
-        animate={{ y: [0, 10, 0], x: [0, -5, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-      />
-      <motion.div 
-        className="absolute bottom-[15%] left-[25%] w-5 h-2 bg-accent opacity-10 rounded-lg"
-        animate={{ y: [0, 8, 0], rotate: [0, 5, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
-      />
     </section>
   )
 }
