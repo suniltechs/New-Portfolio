@@ -65,7 +65,11 @@ const Navbar = ({ activeSection }) => {
   }
 
   const menuVariants = {
-    hidden: { opacity: 0, y: -18, scale: 0.98 },
+    hidden: { 
+      opacity: 0, 
+      y: -14, 
+      scale: 0.96,
+    },
     visible: {
       opacity: 1,
       y: 0,
@@ -73,22 +77,43 @@ const Navbar = ({ activeSection }) => {
       transition: {
         type: 'spring',
         damping: 26,
-        stiffness: 260,
-        staggerChildren: 0.04,
-        delayChildren: 0.08,
+        stiffness: 320,
+        staggerChildren: 0.035,
+        delayChildren: 0.04,
       },
     },
     exit: {
       opacity: 0,
-      y: -18,
-      scale: 0.98,
-      transition: { duration: 0.18 },
+      y: -10,
+      scale: 0.97,
+      transition: { 
+        duration: 0.18,
+        ease: [0.4, 0, 0.2, 1],
+        staggerChildren: 0.02,
+        staggerDirection: -1
+      },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 12 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 10 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: 'spring',
+        damping: 24,
+        stiffness: 300
+      }
+    },
+    exit: {
+      opacity: 0,
+      y: -6,
+      transition: {
+        duration: 0.1,
+        ease: 'easeOut'
+      }
+    }
   }
 
   return (
@@ -179,12 +204,23 @@ const Navbar = ({ activeSection }) => {
             
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="grid h-11 w-11 place-items-center rounded-full bg-orange-primary text-white shadow-lg shadow-orange-primary/25 transition-transform hover:scale-105 active:scale-95 lg:hidden"
+              className="grid h-11 w-11 place-items-center rounded-full bg-orange-primary text-white shadow-lg shadow-orange-primary/25 transition-transform hover:scale-105 active:scale-95 overflow-hidden lg:hidden"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
             >
-              {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={isOpen ? 'close' : 'open'}
+                  initial={{ rotate: isOpen ? -90 : 90, opacity: 0, scale: 0.5 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  exit={{ rotate: isOpen ? 90 : -90, opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                  className="grid place-items-center"
+                >
+                  {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+                </motion.div>
+              </AnimatePresence>
             </button>
           </div>
         </div>
@@ -199,6 +235,7 @@ const Navbar = ({ activeSection }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
               onClick={() => setIsOpen(false)}
               className="fixed inset-0 z-[50] bg-dark-bg/45 backdrop-blur-sm dark:bg-black/55 lg:hidden"
             />
@@ -210,15 +247,15 @@ const Navbar = ({ activeSection }) => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed left-4 right-4 top-24 z-[55] max-h-[calc(100dvh-7rem)] overflow-y-auto rounded-[2rem] border border-gray-300/70 bg-cream-lighter/95 p-4 shadow-2xl shadow-dark-bg/25 backdrop-blur-2xl dark:border-white/10 dark:bg-dark-card/95 lg:hidden"
+              style={{ transformOrigin: 'top center' }}
+              className="fixed left-4 right-4 top-24 z-[55] max-h-[calc(100dvh-7.5rem)] overflow-y-auto rounded-[2rem] border border-gray-300/70 bg-cream-lighter/95 p-4 shadow-2xl shadow-dark-bg/25 backdrop-blur-2xl dark:border-white/10 dark:bg-dark-card/95 lg:hidden"
               aria-label="Mobile navigation"
             >
               <ul className="grid gap-2">
-                {navLinks.map((link, index) => (
+                {navLinks.map((link) => (
                   <motion.li 
                     key={link.id}
                     variants={itemVariants}
-                    transition={{ delay: index * 0.05 }}
                   >
                     <button
                       onClick={() => scrollToSection(link.id)}
