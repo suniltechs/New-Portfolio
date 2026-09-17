@@ -37,8 +37,18 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="hero-background relative flex min-h-screen items-center overflow-hidden pt-24 text-white"
+      className="relative flex min-h-screen items-center overflow-hidden bg-dark-bg pt-24 text-white"
     >
+      <picture>
+        <source type="image/webp" srcSet="/assets/images/h4-w.webp" />
+        <img
+          src="/assets/images/h4-1600.jpeg"
+          alt=""
+          fetchpriority="high"
+          className="absolute inset-0 h-full w-full object-cover object-center max-md:object-[64%_center]"
+        />
+      </picture>
+
       <div className="absolute inset-0 bg-gradient-to-r from-dark-bg/95 via-dark-bg/70 to-dark-bg/15" />
 
       <div className="container relative z-10 mx-auto px-5 py-16 sm:px-8 md:py-20 lg:px-12">

@@ -58,16 +58,3 @@ body::-webkit-scrollbar {
   height: 0;
 }
 
-.hero-background {
-  background-image: url('/assets/images/h4.jpeg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-@media (max-width: 767px) {
-  .hero-background {
-    background-position: 64% center;
-  }
-}
-
