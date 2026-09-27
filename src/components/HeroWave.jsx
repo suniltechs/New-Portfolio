@@ -39,6 +39,58 @@ const HeroWave = () => {
       context.fill()
       context.fillRect(0, height - 2, width, 4)
 
+      // In dark mode: Multi-layered Border & Contour Effects
+      if (document.documentElement.classList.contains('dark')) {
+        context.save()
+
+        // 1. Dynamic horizontal gradient contour (amber -> warm yellow -> luminous crest -> amber)
+        const borderGradient = context.createLinearGradient(0, 0, width, 0)
+        borderGradient.addColorStop(0, 'rgba(255, 155, 81, 0.45)')
+        borderGradient.addColorStop(0.25, '#FFB26B')
+        borderGradient.addColorStop(0.5, '#FFF2D1')
+        borderGradient.addColorStop(0.75, '#FF9B51')
+        borderGradient.addColorStop(1, 'rgba(255, 155, 81, 0.45)')
+
+        // 2. Secondary subtle echo contour line (gives architectural / fluid depth)
+        context.beginPath()
+        context.moveTo(0, centerY + amplitude * Math.sin(phase) - 4)
+        for (let x = 0; x <= width; x += 4) {
+          const y = centerY + amplitude * Math.sin((x / wavelength) * Math.PI * 2 + phase) - 4
+          context.lineTo(x, y)
+        }
+        context.strokeStyle = 'rgba(255, 180, 110, 0.28)'
+        context.lineWidth = 1
+        context.stroke()
+
+        // 3. Outer neon aura glow
+        context.beginPath()
+        context.moveTo(0, centerY + amplitude * Math.sin(phase))
+        for (let x = 0; x <= width; x += 4) {
+          const y = centerY + amplitude * Math.sin((x / wavelength) * Math.PI * 2 + phase)
+          context.lineTo(x, y)
+        }
+        context.strokeStyle = 'rgba(255, 155, 81, 0.35)'
+        context.lineWidth = 4
+        context.shadowColor = 'rgba(255, 155, 81, 0.7)'
+        context.shadowBlur = 10
+        context.stroke()
+
+        // 4. Sharp luminous core crest line
+        context.beginPath()
+        context.moveTo(0, centerY + amplitude * Math.sin(phase))
+        for (let x = 0; x <= width; x += 4) {
+          const y = centerY + amplitude * Math.sin((x / wavelength) * Math.PI * 2 + phase)
+          context.lineTo(x, y)
+        }
+        context.strokeStyle = borderGradient
+        context.lineWidth = 2
+        context.shadowColor = '#FFF2D1'
+        context.shadowBlur = 4
+        context.stroke()
+
+        context.restore()
+      }
+
       if (!reduceMotion) {
         animationFrame = requestAnimationFrame(drawWave)
       }
