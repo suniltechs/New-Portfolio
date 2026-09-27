@@ -85,7 +85,7 @@ const Footer = () => {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <a
-                    href={`#${link.id}`}
+                    href={`/#${link.id}`}
                     className="flex items-center text-dark-text hover:text-orange-primary transition-colors duration-300 group"
                   >
                     <motion.span 
