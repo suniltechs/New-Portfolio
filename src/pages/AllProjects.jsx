@@ -58,17 +58,45 @@ export const AllProjects = () => {
         {/* Sticky Header Bar */}
         <header className="sticky top-0 z-50 backdrop-blur-xl bg-cream-lighter/85 dark:bg-dark-bg/85 border-b border-gray-200/80 dark:border-gray-800/80 transition-colors duration-300">
           <div className="container mx-auto px-4 max-w-7xl h-16 flex items-center justify-between gap-4">
-            {/* Back button */}
-            <Link
-              to="/#work"
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-orange-primary dark:hover:text-orange-primary bg-white/70 dark:bg-dark-card/70 border border-gray-200 dark:border-gray-700/60 shadow-sm hover:shadow transition-all duration-200 group"
-            >
-              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              <span>Back to Portfolio</span>
-            </Link>
-
-            {/* Actions: Theme Toggle */}
+            {/* Left: Back to Portfolio button */}
             <div className="flex items-center gap-3">
+              <Link
+                to="/#work"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-orange-primary dark:hover:text-orange-primary bg-white/70 dark:bg-dark-card/70 border border-gray-200 dark:border-gray-700/60 shadow-sm hover:shadow transition-all duration-200 group"
+              >
+                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+                <span className="hidden sm:inline">Back to Portfolio</span>
+                <span className="sm:hidden">Back</span>
+              </Link>
+            </div>
+
+            {/* Center: Quick Navigation Links */}
+            <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600 dark:text-gray-300" aria-label="Quick navigation">
+              <Link to="/#home" className="hover:text-orange-primary transition-colors duration-200">
+                Home
+              </Link>
+              <Link to="/#about" className="hover:text-orange-primary transition-colors duration-200">
+                About
+              </Link>
+              <Link to="/#skills" className="hover:text-orange-primary transition-colors duration-200">
+                Skills
+              </Link>
+              <Link to="/#experience" className="hover:text-orange-primary transition-colors duration-200">
+                Experience
+              </Link>
+              <Link to="/#contact" className="hover:text-orange-primary transition-colors duration-200">
+                Contact
+              </Link>
+            </nav>
+
+            {/* Right: Get in Touch Button & Theme Toggle */}
+            <div className="flex items-center gap-3">
+              <Link
+                to="/#contact"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold bg-orange-primary hover:bg-orange-600 text-white shadow-sm shadow-orange-primary/25 transition-all hover:scale-[1.02] active:scale-95"
+              >
+                <span>Get in Touch</span>
+              </Link>
               <ThemeToggle />
             </div>
           </div>
