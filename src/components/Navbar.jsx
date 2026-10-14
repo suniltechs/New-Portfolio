@@ -5,6 +5,18 @@ import ThemeToggle from './ThemeToggle'
 
 const Navbar = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  // Track scroll position to update navbar background when scrolling down
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
@@ -41,7 +53,7 @@ const Navbar = ({ activeSection }) => {
   ]
 
   const isHeroSection = activeSection === 'home'
-  const isTransparentHeader = isHeroSection && !isOpen
+  const isTransparentHeader = !isScrolled && isHeroSection && !isOpen
 
   const scrollToSection = (sectionId) => {
     setIsOpen(false)
@@ -119,7 +131,9 @@ const Navbar = ({ activeSection }) => {
   return (
     <>
       <header
-        className={`font-nav fixed left-0 top-0 z-[60] w-full border-b px-5 py-4 transition-all duration-300 sm:px-8 sm:py-5 ${
+        className={`font-nav fixed left-0 top-0 z-[60] w-full border-b transition-all duration-300 px-5 sm:px-8 ${
+          isScrolled ? 'py-3.5 sm:py-4' : 'py-4 sm:py-5'
+        } ${
           isTransparentHeader
             ? 'border-transparent bg-transparent'
             : 'border-gray-200/80 bg-cream-lighter/95 shadow-[0_10px_30px_-24px_rgba(37,52,63,0.55)] backdrop-blur-xl dark:border-white/10 dark:bg-dark-bg/95'
@@ -198,7 +212,9 @@ const Navbar = ({ activeSection }) => {
               <FaArrowRight className="text-[11px] transition-transform duration-300 group-hover:translate-x-1" />
               <span className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-orange-primary transition-transform duration-300 group-hover:scale-x-100" />
             </a>
-            <div className="grid h-10 w-10 place-items-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] transition-transform duration-300 hover:rotate-6 hover:scale-110">
+            <div className={`grid h-10 w-10 place-items-center transition-transform duration-300 hover:rotate-6 hover:scale-110 ${
+              isTransparentHeader ? 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]' : ''
+            }`}>
               <ThemeToggle />
             </div>
             
