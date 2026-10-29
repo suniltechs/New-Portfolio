@@ -1,6 +1,6 @@
 # Portfolio Website
 
-![Portfolio Screenshot](./public/assets/images/Screenshot.png)  
+![Portfolio Screenshot](./public/assets/images/p1.png)  
 *A modern, responsive portfolio showcasing my skills, projects, and experience*
 
 ## 🌟 Features
