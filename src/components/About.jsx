@@ -146,7 +146,7 @@ const About = () => {
               whileTap={{ scale: 0.98 }}
             >
               <motion.a
-                href="https://drive.google.com/file/d/1MyD49ckJXkU9exxZtKDHIfjNM0oCyRzJ/view?usp=sharing"
+                href="https://drive.google.com/file/d/1DI7D-2JOFVvt8YLivG38TEfjJQE7msA2/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center rounded-full bg-dark-bg px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-dark-bg/20 transition-colors hover:bg-orange-primary hover:text-white dark:bg-white dark:text-gray-950 dark:shadow-black/20"
